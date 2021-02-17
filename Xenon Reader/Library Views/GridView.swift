@@ -5,16 +5,16 @@
 //  Created by H. Kamran on 2/16/21.
 //
 
-import EPUBKit
 import SwiftUI
+import EPUBKit
 
 struct GridView: View {
     let epubs: [EPUBDocument?]
 
     var columns: [GridItem] = [
-        GridItem(.fixed(300), spacing: 8),
-        GridItem(.fixed(300), spacing: 8),
-        GridItem(.fixed(300), spacing: 8),
+        GridItem(.fixed(100), spacing: 16),
+        GridItem(.fixed(100), spacing: 16),
+        GridItem(.fixed(100), spacing: 16),
     ]
 
     var body: some View {
@@ -27,7 +27,6 @@ struct GridView: View {
                 GridViewBook(epub: epubs[0])
             }
         }
-        .background(Color.pink)
     }
 }
 
