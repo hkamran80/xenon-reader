@@ -26,6 +26,7 @@
 /* Begin PBXFileReference section */
 		1203E25125DCBCE0001D999E /* ToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarModifier.swift; sourceTree = "<group>"; };
 		1203E25625DCBE62001D999E /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = Helpers/ColorExtensions.swift; sourceTree = "<group>"; };
+		1203E26125DCDD86001D999E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		1239425125DBCAAB00B408DB /* Xenon Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xenon Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xenon_ReaderApp.swift; sourceTree = "<group>"; };
 		1239425625DBCAAB00B408DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 				1203E25625DCBE62001D999E /* ColorExtensions.swift */,
 				1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */,
 				1239425625DBCAAB00B408DB /* ContentView.swift */,
+				1203E26125DCDD86001D999E /* README.md */,
 				12B4DEE925DC7C8400B5908F /* GridView.swift */,
 				12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */,
 				1203E25525DCBDA9001D999E /* Helpers */,
