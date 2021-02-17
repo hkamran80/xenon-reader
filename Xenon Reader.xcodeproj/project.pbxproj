@@ -3,17 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E25125DCBCE0001D999E /* ToolbarModifier.swift */; };
+		1203E25725DCBE62001D999E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E25625DCBE62001D999E /* ColorExtensions.swift */; };
 		1239425525DBCAAB00B408DB /* Xenon_ReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */; };
 		1239425725DBCAAB00B408DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239425625DBCAAB00B408DB /* ContentView.swift */; };
 		1239425925DBCAAD00B408DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1239425825DBCAAD00B408DB /* Assets.xcassets */; };
 		1239425C25DBCAAD00B408DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1239425B25DBCAAD00B408DB /* Preview Assets.xcassets */; };
+		1239426825DBCD2900B408DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239426725DBCD2900B408DB /* SettingsView.swift */; };
+		1239426C25DBD19E00B408DB /* EPUBKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1239426B25DBD19E00B408DB /* EPUBKit */; };
+		1239427225DBD25A00B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */; };
+		1239427525DBD75600B408DB /* EPUBHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427425DBD75600B408DB /* EPUBHelpers.swift */; };
+		1239427925DBDA2E00B408DB /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */; };
+		1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427B25DBDAA700B408DB /* DebugSettingsView.swift */; };
+		12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DEE925DC7C8400B5908F /* GridView.swift */; };
+		12B4DEED25DC7D1800B5908F /* GridViewBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1203E25125DCBCE0001D999E /* ToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarModifier.swift; sourceTree = "<group>"; };
+		1203E25625DCBE62001D999E /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = Helpers/ColorExtensions.swift; sourceTree = "<group>"; };
 		1239425125DBCAAB00B408DB /* Xenon Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xenon Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xenon_ReaderApp.swift; sourceTree = "<group>"; };
 		1239425625DBCAAB00B408DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -21,6 +33,13 @@
 		1239425B25DBCAAD00B408DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1239425D25DBCAAD00B408DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1239425E25DBCAAD00B408DB /* Xenon_Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xenon_Reader.entitlements; sourceTree = "<group>"; };
+		1239426725DBCD2900B408DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub"; sourceTree = "<group>"; };
+		1239427425DBD75600B408DB /* EPUBHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBHelpers.swift; sourceTree = "<group>"; };
+		1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		1239427B25DBDAA700B408DB /* DebugSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettingsView.swift; sourceTree = "<group>"; };
+		12B4DEE925DC7C8400B5908F /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewBook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,12 +47,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1239426C25DBD19E00B408DB /* EPUBKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1203E25425DCBD9F001D999E /* View Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1203E25125DCBCE0001D999E /* ToolbarModifier.swift */,
+			);
+			path = "View Helpers";
+			sourceTree = "<group>";
+		};
+		1203E25525DCBDA9001D999E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1239427425DBD75600B408DB /* EPUBHelpers.swift */,
+				1203E25425DCBD9F001D999E /* View Helpers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1239424825DBCAAB00B408DB = {
 			isa = PBXGroup;
 			children = (
@@ -53,10 +90,16 @@
 		1239425325DBCAAB00B408DB /* Xenon Reader */ = {
 			isa = PBXGroup;
 			children = (
+				1203E25625DCBE62001D999E /* ColorExtensions.swift */,
 				1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */,
 				1239425625DBCAAB00B408DB /* ContentView.swift */,
+				12B4DEE925DC7C8400B5908F /* GridView.swift */,
+				12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */,
+				1203E25525DCBDA9001D999E /* Helpers */,
+				12B4DEE325DC7A2000B5908F /* Settings */,
 				1239425825DBCAAD00B408DB /* Assets.xcassets */,
 				1239425D25DBCAAD00B408DB /* Info.plist */,
+				1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */,
 				1239425E25DBCAAD00B408DB /* Xenon_Reader.entitlements */,
 				1239425A25DBCAAD00B408DB /* Preview Content */,
 			);
@@ -69,6 +112,16 @@
 				1239425B25DBCAAD00B408DB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		12B4DEE325DC7A2000B5908F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1239426725DBCD2900B408DB /* SettingsView.swift */,
+				1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */,
+				1239427B25DBDAA700B408DB /* DebugSettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +140,9 @@
 			dependencies = (
 			);
 			name = "Xenon Reader";
+			packageProductDependencies = (
+				1239426B25DBD19E00B408DB /* EPUBKit */,
+			);
 			productName = "Xenon Reader";
 			productReference = 1239425125DBCAAB00B408DB /* Xenon Reader.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 1239424825DBCAAB00B408DB;
+			packageReferences = (
+				1239426A25DBD19E00B408DB /* XCRemoteSwiftPackageReference "EPUBKit" */,
+			);
 			productRefGroup = 1239425225DBCAAB00B408DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1239425C25DBCAAD00B408DB /* Preview Assets.xcassets in Resources */,
+				1239427225DBD25A00B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub in Resources */,
 				1239425925DBCAAD00B408DB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,8 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1239426825DBCD2900B408DB /* SettingsView.swift in Sources */,
+				1203E25725DCBE62001D999E /* ColorExtensions.swift in Sources */,
+				12B4DEED25DC7D1800B5908F /* GridViewBook.swift in Sources */,
+				1239427925DBDA2E00B408DB /* GeneralSettingsView.swift in Sources */,
+				1239427525DBD75600B408DB /* EPUBHelpers.swift in Sources */,
+				12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */,
 				1239425725DBCAAB00B408DB /* ContentView.swift in Sources */,
 				1239425525DBCAAB00B408DB /* Xenon_ReaderApp.swift in Sources */,
+				1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */,
+				1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +347,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hkamran.Xenon-Reader";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkamran.XenonReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -301,7 +370,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hkamran.Xenon-Reader";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkamran.XenonReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -329,6 +399,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1239426A25DBD19E00B408DB /* XCRemoteSwiftPackageReference "EPUBKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/witekbobrowski/EPUBKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1239426B25DBD19E00B408DB /* EPUBKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1239426A25DBD19E00B408DB /* XCRemoteSwiftPackageReference "EPUBKit" */;
+			productName = EPUBKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1239424925DBCAAB00B408DB /* Project object */;
 }

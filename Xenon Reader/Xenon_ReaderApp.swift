@@ -13,5 +13,11 @@ struct Xenon_ReaderApp: App {
         WindowGroup {
             ContentView()
         }
+
+        #if os(macOS)
+            Settings {
+                SettingsView()
+            }
+        #endif
     }
 }
