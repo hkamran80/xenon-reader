@@ -15,7 +15,7 @@ struct ToolbarModifier: ViewModifier {
             .toolbar {
                 ToolbarItem {
                     // TODO: Make picker control grid/list view
-                    Picker(selection: $viewType, label: Text("What is your favorite color?")) {
+                    Picker(selection: $viewType, label: Text("Grid or list view?")) {
                         Image(systemName: "square.grid.3x2")
                             .tag(0)
                         Image(systemName: "tablecells")

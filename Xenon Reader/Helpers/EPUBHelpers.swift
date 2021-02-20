@@ -11,7 +11,7 @@ import Foundation
 
 func loadEpub(_ filename: String) -> EPUBDocument? {
     guard
-        let path = Bundle.main.url(forResource: filename, withExtension: "epub"),
+        let path = Bundle.main.url(forResource: filename.contains(".epub") ? filename.replacingOccurrences(of: ".epub", with: "") : filename, withExtension: "epub"),
         let document = EPUBDocument(url: path)
     else { return nil }
 

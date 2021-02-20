@@ -10,42 +10,55 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage("libraryPath") var libraryPath = ""
-    @State var epub: EPUBDocument?
+    @StateObject var xrShared = XRShared()
 
-    var epubs: [EPUBDocument?] = [loadEpub("Genius - Genius_ The Game (Book 1) - Leopoldo Gout")]
+    // TODO: Remove variable after UI works
+    let title: String
 
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: GridView(epubs: epubs)) {
-                    Label("Library", systemImage: "books.vertical")
+                Section(header: Text("Library")) {
+                    NavigationLink(destination: GridView(epubs: self.xrShared.epubs)) {
+                        Label("All Books", systemImage: "books.vertical")
+                    }
+                    NavigationLink(destination: AuthorsView()) {
+                        Label("Authors", systemImage: "person.3")
+                    }
                 }
 
-                Divider()
-
-                Text("Categories")
-                    .opacity(0.5)
-                Group {
+                Section(header: Text("Categories")) {
                     NavigationLink(destination: Text("Category 1")) {
-                        Label("First Category", systemImage: "folder.circle")
+                        Label("First Category", systemImage: "tray.circle")
+                    }
+                }
+
+                Spacer()
+
+                Section(header: Text("Testing")) {
+                    NavigationLink(
+                        destination: FileListView()
+                            .environmentObject(self.xrShared)) {
+                            Label("File List View", systemImage: "doc")
                     }
                 }
             }
             .listStyle(SidebarListStyle())
 
-            GridView(epubs: epubs)
+            GridView(epubs: self.xrShared.epubs)
         }
-        .navigationTitle("Xenon Reader")
-        .navigationSubtitle("1 Readable")
-        .frame(minWidth: 700, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
+        // TODO: Replace navigationTitle with string
+        .navigationTitle(title)
+        .navigationSubtitle(readableCount(count: self.xrShared.epubs.count))
+        .frame(minWidth: 350, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         .modifier(ToolbarModifier())
     }
 }
 
 #if DEBUG
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(title: "Xenon Reader [Preview]")
     }
+}
 #endif

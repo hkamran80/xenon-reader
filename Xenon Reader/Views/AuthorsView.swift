@@ -8,15 +8,9 @@
 import SwiftUI
 
 struct AuthorsView: View {
-    @AppStorage("libraryPath") var libraryPath = ""
-    @State var lli = []
-    
+    // TODO: Create authors view
     var body: some View {
-        Button(action: {
-            lli = loadLibraryItems(libraryPath) ?? []
-        }, label: {
-            Text("Load Library Items")
-        })
+        Text("Planned: Authors View")
     }
 }
 

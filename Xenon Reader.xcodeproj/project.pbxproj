@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E25125DCBCE0001D999E /* ToolbarModifier.swift */; };
 		1203E25725DCBE62001D999E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E25625DCBE62001D999E /* ColorExtensions.swift */; };
+		1203E26625DCE0EB001D999E /* EPUBDocumentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E26525DCE0EB001D999E /* EPUBDocumentExtensions.swift */; };
 		1239425525DBCAAB00B408DB /* Xenon_ReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */; };
 		1239425725DBCAAB00B408DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239425625DBCAAB00B408DB /* ContentView.swift */; };
 		1239425925DBCAAD00B408DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1239425825DBCAAD00B408DB /* Assets.xcassets */; };
@@ -19,14 +20,23 @@
 		1239427525DBD75600B408DB /* EPUBHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427425DBD75600B408DB /* EPUBHelpers.swift */; };
 		1239427925DBDA2E00B408DB /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */; };
 		1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427B25DBDAA700B408DB /* DebugSettingsView.swift */; };
+		1252059D25DDB01600E6E464 /* RealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252059C25DDB01600E6E464 /* RealmObjects.swift */; };
+		12A8A53425DCE3DD003147E2 /* Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A8A53325DCE3DD003147E2 /* Filesystem.swift */; };
+		12A8A54025DCE7BE003147E2 /* AuthorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A8A53F25DCE7BE003147E2 /* AuthorsView.swift */; };
 		12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DEE925DC7C8400B5908F /* GridView.swift */; };
 		12B4DEED25DC7D1800B5908F /* GridViewBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */; };
+		12BC330A25DF990D004AEA09 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 12BC330925DF990D004AEA09 /* Realm */; };
+		12BC330C25DF990D004AEA09 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 12BC330B25DF990D004AEA09 /* RealmSwift */; };
+		12F5355125E0BD9500D11F49 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5355025E0BD9500D11F49 /* Helpers.swift */; };
+		12F5355825E0BEC500D11F49 /* FileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5355725E0BEC500D11F49 /* FileListView.swift */; };
+		12F5355C25E0EB5500D11F49 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5355B25E0EB5500D11F49 /* RealmHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1203E25125DCBCE0001D999E /* ToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarModifier.swift; sourceTree = "<group>"; };
-		1203E25625DCBE62001D999E /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = Helpers/ColorExtensions.swift; sourceTree = "<group>"; };
+		1203E25625DCBE62001D999E /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		1203E26125DCDD86001D999E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		1203E26525DCE0EB001D999E /* EPUBDocumentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBDocumentExtensions.swift; sourceTree = "<group>"; };
 		1239425125DBCAAB00B408DB /* Xenon Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xenon Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xenon_ReaderApp.swift; sourceTree = "<group>"; };
 		1239425625DBCAAB00B408DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,8 +49,14 @@
 		1239427425DBD75600B408DB /* EPUBHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBHelpers.swift; sourceTree = "<group>"; };
 		1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		1239427B25DBDAA700B408DB /* DebugSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettingsView.swift; sourceTree = "<group>"; };
+		1252059C25DDB01600E6E464 /* RealmObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjects.swift; sourceTree = "<group>"; };
+		12A8A53325DCE3DD003147E2 /* Filesystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filesystem.swift; sourceTree = "<group>"; };
+		12A8A53F25DCE7BE003147E2 /* AuthorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorsView.swift; sourceTree = "<group>"; };
 		12B4DEE925DC7C8400B5908F /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewBook.swift; sourceTree = "<group>"; };
+		12F5355025E0BD9500D11F49 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = "Xenon Reader/Helpers/Helpers.swift"; sourceTree = SOURCE_ROOT; };
+		12F5355725E0BEC500D11F49 /* FileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileListView.swift; path = Views/FileListView.swift; sourceTree = "<group>"; };
+		12F5355B25E0EB5500D11F49 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12BC330C25DF990D004AEA09 /* RealmSwift in Frameworks */,
+				12BC330A25DF990D004AEA09 /* Realm in Frameworks */,
 				1239426C25DBD19E00B408DB /* EPUBKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,10 +84,21 @@
 		1203E25525DCBDA9001D999E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				12F5355025E0BD9500D11F49 /* Helpers.swift */,
 				1239427425DBD75600B408DB /* EPUBHelpers.swift */,
+				1252059F25DDB01A00E6E464 /* Realm */,
 				1203E25425DCBD9F001D999E /* View Helpers */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1203E26825DCE18E001D999E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1203E25625DCBE62001D999E /* ColorExtensions.swift */,
+				1203E26525DCE0EB001D999E /* EPUBDocumentExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1239424825DBCAAB00B408DB = {
@@ -91,14 +120,14 @@
 		1239425325DBCAAB00B408DB /* Xenon Reader */ = {
 			isa = PBXGroup;
 			children = (
-				1203E25625DCBE62001D999E /* ColorExtensions.swift */,
 				1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */,
 				1239425625DBCAAB00B408DB /* ContentView.swift */,
+				12F5355725E0BEC500D11F49 /* FileListView.swift */,
 				1203E26125DCDD86001D999E /* README.md */,
-				12B4DEE925DC7C8400B5908F /* GridView.swift */,
-				12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */,
+				12F5355525E0BEA600D11F49 /* Views */,
+				12A8A53625DCE4D9003147E2 /* Filesystem */,
+				1203E26825DCE18E001D999E /* Extensions */,
 				1203E25525DCBDA9001D999E /* Helpers */,
-				12B4DEE325DC7A2000B5908F /* Settings */,
 				1239425825DBCAAD00B408DB /* Assets.xcassets */,
 				1239425D25DBCAAD00B408DB /* Info.plist */,
 				1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */,
@@ -116,6 +145,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1252059F25DDB01A00E6E464 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				12F5355B25E0EB5500D11F49 /* RealmHelpers.swift */,
+				1252059C25DDB01600E6E464 /* RealmObjects.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		12A8A53625DCE4D9003147E2 /* Filesystem */ = {
+			isa = PBXGroup;
+			children = (
+				12A8A53325DCE3DD003147E2 /* Filesystem.swift */,
+			);
+			path = Filesystem;
+			sourceTree = "<group>";
+		};
 		12B4DEE325DC7A2000B5908F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +170,17 @@
 				1239427B25DBDAA700B408DB /* DebugSettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		12F5355525E0BEA600D11F49 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12B4DEE925DC7C8400B5908F /* GridView.swift */,
+				12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */,
+				12A8A53F25DCE7BE003147E2 /* AuthorsView.swift */,
+				12B4DEE325DC7A2000B5908F /* Settings */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +201,8 @@
 			name = "Xenon Reader";
 			packageProductDependencies = (
 				1239426B25DBD19E00B408DB /* EPUBKit */,
+				12BC330925DF990D004AEA09 /* Realm */,
+				12BC330B25DF990D004AEA09 /* RealmSwift */,
 			);
 			productName = "Xenon Reader";
 			productReference = 1239425125DBCAAB00B408DB /* Xenon Reader.app */;
@@ -174,6 +233,7 @@
 			mainGroup = 1239424825DBCAAB00B408DB;
 			packageReferences = (
 				1239426A25DBD19E00B408DB /* XCRemoteSwiftPackageReference "EPUBKit" */,
+				12BC330825DF990D004AEA09 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 1239425225DBCAAB00B408DB /* Products */;
 			projectDirPath = "";
@@ -206,10 +266,17 @@
 				1203E25725DCBE62001D999E /* ColorExtensions.swift in Sources */,
 				12B4DEED25DC7D1800B5908F /* GridViewBook.swift in Sources */,
 				1239427925DBDA2E00B408DB /* GeneralSettingsView.swift in Sources */,
+				12F5355825E0BEC500D11F49 /* FileListView.swift in Sources */,
 				1239427525DBD75600B408DB /* EPUBHelpers.swift in Sources */,
+				12A8A54025DCE7BE003147E2 /* AuthorsView.swift in Sources */,
+				12A8A53425DCE3DD003147E2 /* Filesystem.swift in Sources */,
 				12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */,
+				1203E26625DCE0EB001D999E /* EPUBDocumentExtensions.swift in Sources */,
+				1252059D25DDB01600E6E464 /* RealmObjects.swift in Sources */,
+				12F5355125E0BD9500D11F49 /* Helpers.swift in Sources */,
 				1239425725DBCAAB00B408DB /* ContentView.swift in Sources */,
 				1239425525DBCAAB00B408DB /* Xenon_ReaderApp.swift in Sources */,
+				12F5355C25E0EB5500D11F49 /* RealmHelpers.swift in Sources */,
 				1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */,
 				1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */,
 			);
@@ -411,6 +478,14 @@
 				kind = branch;
 			};
 		};
+		12BC330825DF990D004AEA09 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -418,6 +493,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1239426A25DBD19E00B408DB /* XCRemoteSwiftPackageReference "EPUBKit" */;
 			productName = EPUBKit;
+		};
+		12BC330925DF990D004AEA09 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12BC330825DF990D004AEA09 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		12BC330B25DF990D004AEA09 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12BC330825DF990D004AEA09 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

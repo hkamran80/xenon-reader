@@ -11,7 +11,7 @@ import SwiftUI
 struct Xenon_ReaderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(title: "Xenon Reader")
         }
 
         #if os(macOS)

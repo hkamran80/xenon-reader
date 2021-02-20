@@ -5,8 +5,8 @@
 //  Created by H. Kamran on 2/16/21.
 //
 
-import SwiftUI
 import EPUBKit
+import SwiftUI
 
 struct GridView: View {
     let epubs: [EPUBDocument?]
@@ -18,15 +18,18 @@ struct GridView: View {
     ]
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(
-                columns: columns,
-                alignment: .center,
-                pinnedViews: [.sectionHeaders, .sectionFooters]
-            ) {
+        HStack {
+            GridViewBook(epub: epubs[0])
+            Spacer()
+            if epubs.count > 1 {
+                GridViewBook(epub: epubs[0])
+                Spacer()
+            }
+            if epubs.count > 2 {
                 GridViewBook(epub: epubs[0])
             }
         }
+        .padding([.leading, .trailing])
     }
 }
 

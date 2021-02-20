@@ -1,5 +1,5 @@
 //
-//  DebugSettingsView.swift
+//  GeneralSettingsView.swift
 //  Xenon Reader
 //
 //  Created by H. Kamran on 2/16/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DebugSettingsView: View {
+struct GeneralSettingsView: View {
     @AppStorage("fontSize") private var fontSize = 12.0
     @AppStorage("libraryPath") var libraryPath = ""
 
@@ -22,25 +22,27 @@ struct DebugSettingsView: View {
                     panel.canChooseDirectories = true
                     panel.canChooseFiles = false
 
+                    panel.title = "Xenon Reader Library Path"
+                    panel.message = "Where your EPUBs are stored"
+                    panel.prompt = "Select"
+
                     if panel.runModal() == .OK {
-                        self.libraryPath = panel.url?.absoluteString ?? "<none>"
+                        self.libraryPath = panel.url?.absoluteString.replacingOccurrences(of: "file://", with: "").removingPercentEncoding ?? "<none>"
                     }
                 }
+            }
 
-                Button(action: {
-                    libraryPath = ""
-                }) {
-                    Image(systemName: "arrow.clockwise.circle")
-                }
+            Slider(value: $fontSize, in: 8...64) {
+                Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
             }
         }
     }
 }
 
 #if DEBUG
-    struct DebugSettingsView_Previews: PreviewProvider {
+    struct GeneralSettingsView_Previews: PreviewProvider {
         static var previews: some View {
-            DebugSettingsView()
+            GeneralSettingsView()
         }
     }
 #endif
