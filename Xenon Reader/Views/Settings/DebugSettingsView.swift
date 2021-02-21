@@ -10,6 +10,7 @@ import SwiftUI
 struct DebugSettingsView: View {
     @AppStorage("fontSize") private var fontSize = 12.0
     @AppStorage("libraryPath") var libraryPath = ""
+    @AppStorage("libraryUrl") var libraryUrl = ""
 
     var body: some View {
         Form {
@@ -23,7 +24,10 @@ struct DebugSettingsView: View {
                     panel.canChooseFiles = false
 
                     if panel.runModal() == .OK {
-                        self.libraryPath = panel.url?.absoluteString.replacingOccurrences(of: "file://", with: "").removingPercentEncoding ?? "<none>"
+                        let libraryPath = panel.url?.absoluteString ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].absoluteString
+                        
+                        self.libraryPath = libraryPath.replacingOccurrences(of: "file://", with: "").removingPercentEncoding ?? "<none>"
+                        self.libraryUrl = libraryPath
                     }
                 }
 

@@ -5,31 +5,21 @@
 //  Created by H. Kamran on 2/19/21.
 //
 
+import EPUBKit
 import RealmSwift
 import SwiftUI
 
 struct FileListView: View {
     @AppStorage("libraryPath") var libraryPath = ""
+    @AppStorage("libraryUrl") var libraryUrl = ""
     @EnvironmentObject var xrShared: XRShared
-    
-    @State var realmInstance: Realm?
+
+    @State var epub: EPUBDocument?
 
     var body: some View {
         VStack {
             Button(action: {
-                realmInstance = initalizeRealm()
-            }) {
-                Text("Initalize Realm")
-            }
-
-            if realmInstance != nil {
-                Text("\(Realm.Configuration.defaultConfiguration.fileURL?.absoluteString ?? "<none>")")
-            }
-
-            Divider()
-
-            Button(action: {
-                self.xrShared.fileList = retrieveLibraryItemsList(libraryPath) ?? []
+                self.xrShared.fileList = retrieveDirectoryList(libraryPath: libraryPath, showHidden: false, fileExtension: "epub") ?? []
             }) {
                 Text("Load Library Items")
             }
@@ -37,7 +27,6 @@ struct FileListView: View {
             List(self.xrShared.fileList, id: \.self) { file in
                 Text(file)
             }
-            .listStyle(InsetListStyle())
         }
         .padding()
     }

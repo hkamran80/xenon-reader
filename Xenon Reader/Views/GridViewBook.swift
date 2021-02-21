@@ -31,7 +31,7 @@ struct GridViewBook: View {
 #if DEBUG
     struct GridViewBook_Previews: PreviewProvider {
         static var previews: some View {
-            GridViewBook(epub: loadEpub("Genius - Genius_ The Game (Book 1) - Leopoldo Gout"))
+            GridViewBook(epub: EpubLoader(fromBundle: "Genius").epub)
         }
     }
 #endif

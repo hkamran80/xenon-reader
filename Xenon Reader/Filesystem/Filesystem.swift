@@ -5,15 +5,18 @@
 //  Created by H. Kamran on 2/16/21.
 //
 
+import EPUBKit
 import Foundation
 
-func retrieveLibraryItemsList(_ libraryPath: String, showHidden: Bool = false) -> [String]? {
+func retrieveDirectoryList(libraryPath: String, showHidden: Bool = false, fileExtension: String = "") -> [String]? {
     if libraryPath != "" {
         let fm = FileManager.default
 
         do {
             let items = try fm.contentsOfDirectory(atPath: libraryPath)
-            return showHidden ? items : items.filter { !$0.hasPrefix(".") }
+            let filteredItems = showHidden ? items : items.filter { !$0.hasPrefix(".") }
+            
+            return fileExtension != "" ? filteredItems.filter { $0.hasSuffix(fileExtension) } : filteredItems
         } catch {
             print(error.localizedDescription)
             return nil
@@ -24,14 +27,14 @@ func retrieveLibraryItemsList(_ libraryPath: String, showHidden: Bool = false) -
     }
 }
 
-// TODO: Figure out how to add to ObservableObject from external function
-// I don't want to import SwiftUI into this file
-func loadLibraryFileList(items: [String]) {}
-
 func absolutePath(_ libraryPath: String, filename: String) -> String {
     if libraryPath.last == "/" {
         return libraryPath + filename
     } else {
         return libraryPath + "/" + filename
     }
+}
+
+func generateFileUrl(libraryUrl: String, filename: String, fileExtension: String) -> URL? {
+    return URL(fileURLWithPath: filename, relativeTo: URL(string: libraryUrl)).appendingPathExtension(fileExtension)
 }

@@ -16,7 +16,6 @@
 		1239425C25DBCAAD00B408DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1239425B25DBCAAD00B408DB /* Preview Assets.xcassets */; };
 		1239426825DBCD2900B408DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239426725DBCD2900B408DB /* SettingsView.swift */; };
 		1239426C25DBD19E00B408DB /* EPUBKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1239426B25DBD19E00B408DB /* EPUBKit */; };
-		1239427225DBD25A00B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */; };
 		1239427525DBD75600B408DB /* EPUBHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427425DBD75600B408DB /* EPUBHelpers.swift */; };
 		1239427925DBDA2E00B408DB /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */; };
 		1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239427B25DBDAA700B408DB /* DebugSettingsView.swift */; };
@@ -30,6 +29,9 @@
 		12F5355125E0BD9500D11F49 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5355025E0BD9500D11F49 /* Helpers.swift */; };
 		12F5355825E0BEC500D11F49 /* FileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5355725E0BEC500D11F49 /* FileListView.swift */; };
 		12F5355C25E0EB5500D11F49 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5355B25E0EB5500D11F49 /* RealmHelpers.swift */; };
+		12F5356425E1FEF500D11F49 /* VariablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5356325E1FEF500D11F49 /* VariablesView.swift */; };
+		12F5356725E20C5B00D11F49 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5356625E20C5B00D11F49 /* ViewHelpers.swift */; };
+		12F5356B25E223AC00D11F49 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5356A25E223AC00D11F49 /* SidebarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +47,6 @@
 		1239425D25DBCAAD00B408DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1239425E25DBCAAD00B408DB /* Xenon_Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xenon_Reader.entitlements; sourceTree = "<group>"; };
 		1239426725DBCD2900B408DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub"; sourceTree = "<group>"; };
 		1239427425DBD75600B408DB /* EPUBHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBHelpers.swift; sourceTree = "<group>"; };
 		1239427825DBDA2E00B408DB /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		1239427B25DBDAA700B408DB /* DebugSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettingsView.swift; sourceTree = "<group>"; };
@@ -55,8 +56,11 @@
 		12B4DEE925DC7C8400B5908F /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewBook.swift; sourceTree = "<group>"; };
 		12F5355025E0BD9500D11F49 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = "Xenon Reader/Helpers/Helpers.swift"; sourceTree = SOURCE_ROOT; };
-		12F5355725E0BEC500D11F49 /* FileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileListView.swift; path = Views/FileListView.swift; sourceTree = "<group>"; };
+		12F5355725E0BEC500D11F49 /* FileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListView.swift; sourceTree = "<group>"; };
 		12F5355B25E0EB5500D11F49 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
+		12F5356325E1FEF500D11F49 /* VariablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesView.swift; sourceTree = "<group>"; };
+		12F5356625E20C5B00D11F49 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
+		12F5356A25E223AC00D11F49 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				1203E25125DCBCE0001D999E /* ToolbarModifier.swift */,
+				12F5356A25E223AC00D11F49 /* SidebarView.swift */,
+				12F5356625E20C5B00D11F49 /* ViewHelpers.swift */,
 			);
 			path = "View Helpers";
 			sourceTree = "<group>";
@@ -122,7 +128,6 @@
 			children = (
 				1239425425DBCAAB00B408DB /* Xenon_ReaderApp.swift */,
 				1239425625DBCAAB00B408DB /* ContentView.swift */,
-				12F5355725E0BEC500D11F49 /* FileListView.swift */,
 				1203E26125DCDD86001D999E /* README.md */,
 				12F5355525E0BEA600D11F49 /* Views */,
 				12A8A53625DCE4D9003147E2 /* Filesystem */,
@@ -130,7 +135,6 @@
 				1203E25525DCBDA9001D999E /* Helpers */,
 				1239425825DBCAAD00B408DB /* Assets.xcassets */,
 				1239425D25DBCAAD00B408DB /* Info.plist */,
-				1239427125DBD25900B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub */,
 				1239425E25DBCAAD00B408DB /* Xenon_Reader.entitlements */,
 				1239425A25DBCAAD00B408DB /* Preview Content */,
 			);
@@ -178,6 +182,8 @@
 				12B4DEE925DC7C8400B5908F /* GridView.swift */,
 				12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */,
 				12A8A53F25DCE7BE003147E2 /* AuthorsView.swift */,
+				12F5356325E1FEF500D11F49 /* VariablesView.swift */,
+				12F5355725E0BEC500D11F49 /* FileListView.swift */,
 				12B4DEE325DC7A2000B5908F /* Settings */,
 			);
 			path = Views;
@@ -250,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1239425C25DBCAAD00B408DB /* Preview Assets.xcassets in Resources */,
-				1239427225DBD25A00B408DB /* Genius - Genius_ The Game (Book 1) - Leopoldo Gout.epub in Resources */,
 				1239425925DBCAAD00B408DB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,11 +277,14 @@
 				12A8A53425DCE3DD003147E2 /* Filesystem.swift in Sources */,
 				12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */,
 				1203E26625DCE0EB001D999E /* EPUBDocumentExtensions.swift in Sources */,
+				12F5356425E1FEF500D11F49 /* VariablesView.swift in Sources */,
+				12F5356725E20C5B00D11F49 /* ViewHelpers.swift in Sources */,
 				1252059D25DDB01600E6E464 /* RealmObjects.swift in Sources */,
 				12F5355125E0BD9500D11F49 /* Helpers.swift in Sources */,
 				1239425725DBCAAB00B408DB /* ContentView.swift in Sources */,
 				1239425525DBCAAB00B408DB /* Xenon_ReaderApp.swift in Sources */,
 				12F5355C25E0EB5500D11F49 /* RealmHelpers.swift in Sources */,
+				12F5356B25E223AC00D11F49 /* SidebarView.swift in Sources */,
 				1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */,
 				1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */,
 			);
@@ -336,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -391,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -406,9 +414,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Xenon Reader/Xenon_Reader.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Xenon Reader/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Xenon Reader/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -419,6 +429,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hkamran.XenonReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -429,9 +440,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Xenon Reader/Xenon_Reader.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Xenon Reader/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Xenon Reader/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -442,6 +455,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hkamran.XenonReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

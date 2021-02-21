@@ -9,13 +9,21 @@ import Cocoa
 import EPUBKit
 import Foundation
 
-func loadEpub(_ filename: String) -> EPUBDocument? {
-    guard
-        let path = Bundle.main.url(forResource: filename.contains(".epub") ? filename.replacingOccurrences(of: ".epub", with: "") : filename, withExtension: "epub"),
-        let document = EPUBDocument(url: path)
-    else { return nil }
+struct EpubLoader {
+    let epub: EPUBDocument?
 
-    return document
+    init(withUrl fileUrl: URL) {
+        epub = EPUBDocument(url: fileUrl)
+    }
+
+    init(fromBundle bundleFilename: String) {
+        if let path = Bundle.main.url(forResource: bundleFilename.contains(".epub") ? bundleFilename.replacingOccurrences(of: ".epub", with: "") : bundleFilename, withExtension: "epub"), let document = EPUBDocument(url: path)
+        {
+            epub = document
+        } else {
+            epub = nil
+        }
+    }
 }
 
 func loadImage(_ imagePath: URL) -> NSImage? {

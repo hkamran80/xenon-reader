@@ -8,57 +8,30 @@
 import EPUBKit
 import SwiftUI
 
+// TODO: Add onboarding
 struct ContentView: View {
     @AppStorage("libraryPath") var libraryPath = ""
-    @StateObject var xrShared = XRShared()
-
-    // TODO: Remove variable after UI works
-    let title: String
+    @AppStorage("libraryUrl") var libraryUrl = ""
+    @EnvironmentObject var xrShared: XRShared
 
     var body: some View {
         NavigationView {
-            List {
-                Section(header: Text("Library")) {
-                    NavigationLink(destination: GridView(epubs: self.xrShared.epubs)) {
-                        Label("All Books", systemImage: "books.vertical")
-                    }
-                    NavigationLink(destination: AuthorsView()) {
-                        Label("Authors", systemImage: "person.3")
-                    }
-                }
-
-                Section(header: Text("Categories")) {
-                    NavigationLink(destination: Text("Category 1")) {
-                        Label("First Category", systemImage: "tray.circle")
-                    }
-                }
-
-                Spacer()
-
-                Section(header: Text("Testing")) {
-                    NavigationLink(
-                        destination: FileListView()
-                            .environmentObject(self.xrShared)) {
-                            Label("File List View", systemImage: "doc")
-                    }
-                }
-            }
-            .listStyle(SidebarListStyle())
+            SidebarView()
+                .environmentObject(self.xrShared)
 
             GridView(epubs: self.xrShared.epubs)
         }
-        // TODO: Replace navigationTitle with string
-        .navigationTitle(title)
+        .navigationTitle("Xenon Reader")
         .navigationSubtitle(readableCount(count: self.xrShared.epubs.count))
         .frame(minWidth: 350, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
-        .modifier(ToolbarModifier())
+        .modifier(ToolbarModifier(xrShared: self.xrShared))
     }
 }
 
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(title: "Xenon Reader [Preview]")
+        ContentView()
     }
 }
 #endif

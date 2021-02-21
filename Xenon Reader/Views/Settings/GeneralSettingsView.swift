@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct GeneralSettingsView: View {
-    @AppStorage("fontSize") private var fontSize = 12.0
+    @AppStorage("fontSize") var fontSize = 12.0
     @AppStorage("libraryPath") var libraryPath = ""
+    @AppStorage("libraryUrl") var libraryUrl = ""
 
     var body: some View {
         Form {
@@ -18,6 +19,7 @@ struct GeneralSettingsView: View {
 
                 Button("Select Folder") {
                     let panel = NSOpenPanel()
+                    
                     panel.allowsMultipleSelection = false
                     panel.canChooseDirectories = true
                     panel.canChooseFiles = false
@@ -27,12 +29,15 @@ struct GeneralSettingsView: View {
                     panel.prompt = "Select"
 
                     if panel.runModal() == .OK {
-                        self.libraryPath = panel.url?.absoluteString.replacingOccurrences(of: "file://", with: "").removingPercentEncoding ?? "<none>"
+                        let libraryPath = panel.url?.absoluteString ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].absoluteString
+
+                        self.libraryPath = libraryPath.replacingOccurrences(of: "file://", with: "").removingPercentEncoding ?? "<none>"
+                        self.libraryUrl = libraryPath
                     }
                 }
             }
 
-            Slider(value: $fontSize, in: 8...64) {
+            Slider(value: $fontSize, in: 8 ... 64) {
                 Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
             }
         }

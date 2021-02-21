@@ -8,9 +8,11 @@
 import Foundation
 import RealmSwift
 
-func initalizeRealm() -> Realm? {
+func initializeRealm() -> Realm? {
     do {
-        return try Realm()
+        // TODO: Remove before full release
+        let configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+        return try Realm(configuration: configuration)
     } catch {
         print("Error initalizing new Realm: \(error.localizedDescription)")
         return nil
