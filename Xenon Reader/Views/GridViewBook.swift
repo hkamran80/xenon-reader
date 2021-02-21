@@ -21,9 +21,11 @@ struct GridViewBook: View {
             Text(epub?.title ?? "Unknown Title")
                 .font(.headline)
                 .bold()
+                .multilineTextAlignment(.center)
 
             Text(epub?.author ?? "Unknown Author")
                 .font(.subheadline)
+                .multilineTextAlignment(.center)
         }
     }
 }
