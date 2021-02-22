@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct AuthorsView: View {
-    // TODO: Create authors view
+    @EnvironmentObject var xrShared: XRShared
+
     var body: some View {
-        Text("Planned: Authors View")
+        NavigationView {
+            List(self.xrShared.authors, id: \.id) { author in
+                NavigationLink(destination: LibraryView(epubs: author.readables)) {
+                    Text(author.name)
+                }
+            }
+        }
     }
 }
 
+#if DEBUG
 struct AuthorsView_Previews: PreviewProvider {
     static var previews: some View {
         AuthorsView()
     }
 }
+#endif

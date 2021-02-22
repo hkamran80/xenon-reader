@@ -10,10 +10,11 @@ import SwiftUI
 
 struct GridViewBook: View {
     let epub: EPUBDocument?
+    @State private var informationSheet: Bool = false
 
     var body: some View {
         VStack(alignment: .center) {
-            Image(nsImage: loadImage((epub?.cover)!) ?? NSImage())
+            Image(nsImage: loadImage(epub?.cover) ?? NSImage())
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 250)
@@ -26,6 +27,22 @@ struct GridViewBook: View {
             Text(epub?.author ?? "Unknown Author")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
+        }
+        .contextMenu {
+            Button(action: {
+                informationSheet = true
+            }) {
+                Label("Information", image: "info.circle")
+            }
+
+            Divider()
+
+            Button(action: {}) {
+                Label("Add to Category", image: "tray")
+            }
+        }
+        .sheet(isPresented: $informationSheet) {
+            ReadableInformation(isPresented: $informationSheet, epub: epub)
         }
     }
 }

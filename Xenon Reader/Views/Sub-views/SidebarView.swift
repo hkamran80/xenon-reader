@@ -13,11 +13,14 @@ struct SidebarView: View {
     var body: some View {
         List {
             Section(header: Text("Library")) {
-                NavigationLink(destination: GridView(epubs: self.xrShared.epubs)) {
+                NavigationLink(destination: LibraryView(epubs: self.xrShared.epubs)) {
                     Label("All Books", systemImage: "books.vertical")
                 }
                 NavigationLink(destination: AuthorsView()) {
                     Label("Authors", systemImage: "person.3")
+                }
+                NavigationLink(destination: PublishersView()) {
+                    Label("Publishers", systemImage: "rectangle.stack.person.crop")
                 }
             }
 

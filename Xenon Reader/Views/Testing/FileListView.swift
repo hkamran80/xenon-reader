@@ -27,6 +27,12 @@ struct FileListView: View {
             List(self.xrShared.fileList, id: \.self) { file in
                 Text(file)
             }
+            
+            Divider()
+            
+            List(self.xrShared.publishers, id: \.id) { publisher in
+                Text("\(publisher.name) - \(publisher.readables.count)")
+            }
         }
         .padding()
     }

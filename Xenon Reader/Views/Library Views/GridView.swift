@@ -11,12 +11,6 @@ import SwiftUI
 struct GridView: View {
     let epubs: [EPUBDocument?]
 
-//    var columns: [GridItem] = [
-//        GridItem(.fixed(100), spacing: 16),
-//        GridItem(.fixed(100), spacing: 16),
-//        GridItem(.fixed(100), spacing: 16),
-//    ]
-
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
@@ -36,7 +30,7 @@ struct GridView: View {
 #if DEBUG
     struct GridView_Previews: PreviewProvider {
         static var previews: some View {
-            GridView(epubs: [EpubLoader(fromBundle: "Genius").epub])
+            GridView(epubs: [EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!)])
         }
     }
 #endif

@@ -8,6 +8,7 @@
 import EPUBKit
 import Foundation
 
+// TODO: Be able to search recursively
 func retrieveDirectoryList(libraryPath: String, showHidden: Bool = false, fileExtension: String = "") -> [String]? {
     if libraryPath != "" {
         let fm = FileManager.default

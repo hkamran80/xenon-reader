@@ -10,9 +10,7 @@ import RealmSwift
 
 func initializeRealm() -> Realm? {
     do {
-        // TODO: Remove before full release
-        let configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-        return try Realm(configuration: configuration)
+        return try Realm()
     } catch {
         print("Error initalizing new Realm: \(error.localizedDescription)")
         return nil

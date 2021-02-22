@@ -19,7 +19,7 @@ struct ContentView: View {
             SidebarView()
                 .environmentObject(self.xrShared)
 
-            GridView(epubs: self.xrShared.epubs)
+            LibraryView(epubs: self.xrShared.epubs)
         }
         .navigationTitle("Xenon Reader")
         .navigationSubtitle(readableCount(count: self.xrShared.epubs.count))

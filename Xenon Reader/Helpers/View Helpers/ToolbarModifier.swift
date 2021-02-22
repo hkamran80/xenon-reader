@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ToolbarModifier: ViewModifier {
     @AppStorage("libraryViewType") var viewType: ViewTypes = .grid
+    @AppStorage("librarySortType") var librarySort: LibrarySortTypes = .title
     @AppStorage("libraryPath") var libraryPath = ""
     @AppStorage("libraryUrl") var libraryUrl = ""
     @State var xrShared: XRShared
@@ -23,11 +24,34 @@ struct ToolbarModifier: ViewModifier {
                 }
 
                 ToolbarItem {
-                    // TODO: Make picker control grid/list view
-                    Picker(selection: $viewType, label: Text("Grid or list view?")) {
-                        Image(systemName: "square.grid.3x2")
+                    Picker("Library Sort", selection: $librarySort) {
+                        Label("Title", systemImage: "textformat")
+                            .tag(LibrarySortTypes.title)
+                        Label("Title (Reversed)", systemImage: "textformat")
+                            .tag(LibrarySortTypes.titleReversed)
+
+                        Label("Author", systemImage: "person.3")
+                            .tag(LibrarySortTypes.author)
+                        Label("Author (Reversed)", systemImage: "person.3")
+                            .tag(LibrarySortTypes.authorReversed)
+
+                        Label("Publisher", systemImage: "rectangle.stack.person.crop")
+                            .tag(LibrarySortTypes.publisher)
+                        Label("Publisher (Reversed)", systemImage: "rectangle.stack.person.crop")
+                            .tag(LibrarySortTypes.publisherReversed)
+
+                        Label("Date Added", systemImage: "calendar.badge.plus")
+                            .tag(LibrarySortTypes.dateAdded)
+                        Label("Last Viewed", systemImage: "eyeglasses")
+                            .tag(LibrarySortTypes.lastViewed)
+                    }
+                }
+
+                ToolbarItem {
+                    Picker("Library View", selection: $viewType) {
+                        Label("Grid", systemImage: "square.grid.3x2")
                             .tag(ViewTypes.grid)
-                        Image(systemName: "tablecells")
+                        Label("List", systemImage: "tablecells")
                             .tag(ViewTypes.list)
                     }
                     .pickerStyle(SegmentedPickerStyle())
@@ -35,10 +59,7 @@ struct ToolbarModifier: ViewModifier {
 
                 // TODO: Add keyboard shortcuts (Cmd+R and Slash) for scanning and searching respectively
                 ToolbarItem {
-                    Button(action: {
-                        self.xrShared.fileList = retrieveDirectoryList(libraryPath: libraryPath, showHidden: false, fileExtension: "epub") ?? []
-                        self.xrShared.epubs = loadLibraryItems(libraryUrl: libraryUrl, directoryList: self.xrShared.fileList)
-                    }) {
+                    Button(action: LibraryLoader(libraryPath: libraryPath, libraryUrl: libraryUrl, xrShared: self.xrShared).scanFiles) {
                         Image(systemName: "scanner")
                     }
                 }

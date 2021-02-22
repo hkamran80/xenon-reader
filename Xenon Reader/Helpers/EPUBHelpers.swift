@@ -26,12 +26,17 @@ struct EpubLoader {
     }
 }
 
-func loadImage(_ imagePath: URL) -> NSImage? {
-    do {
-        let imageData = try Data(contentsOf: imagePath)
-        return NSImage(data: imageData)
-    } catch {
-        print(error.localizedDescription)
+// TODO: Create default/placeholder cover
+func loadImage(_ imagePath: URL?) -> NSImage? {
+    if let imagePathUrl = imagePath {
+        do {
+            let imageData = try Data(contentsOf: imagePathUrl)
+            return NSImage(data: imageData)
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    } else {
         return nil
     }
 }
