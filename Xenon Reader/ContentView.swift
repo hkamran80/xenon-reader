@@ -12,17 +12,18 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("libraryPath") var libraryPath = ""
     @AppStorage("libraryUrl") var libraryUrl = ""
+
     @EnvironmentObject var xrShared: XRShared
 
     var body: some View {
         NavigationView {
-            SidebarView()
-                .environmentObject(self.xrShared)
-
-            LibraryView(epubs: self.xrShared.epubs)
+            switch self.xrShared.mainViewType {
+                case .library: LibraryParentView().environmentObject(xrShared)
+                case .reader: ReaderParentView(epub: self.xrShared.activeReadable).environmentObject(xrShared)
+            }
         }
-        .navigationTitle("Xenon Reader")
-        .navigationSubtitle(readableCount(count: self.xrShared.epubs.count))
+        .navigationTitle(self.xrShared.mainViewType == .library ? "Xenon Reader" : (self.xrShared.activeReadable?.title ?? "Unknown Title"))
+        .navigationSubtitle(self.xrShared.mainViewType == .library ? generateReadableCount(count: self.xrShared.epubs.count) : (self.xrShared.activeReadable?.author ?? "Unknown Author"))
         .frame(minWidth: 350, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         .modifier(ToolbarModifier(xrShared: self.xrShared))
     }

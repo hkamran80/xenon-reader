@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SidebarView: View {
     @EnvironmentObject var xrShared: XRShared
-    
+    @State private var defaultItemActive: Bool = true
+
     var body: some View {
         List {
             Section(header: Text("Library")) {
-                NavigationLink(destination: LibraryView(epubs: self.xrShared.epubs)) {
+                NavigationLink(destination: LibraryView(epubs: self.xrShared.epubs), isActive: $defaultItemActive) {
                     Label("All Books", systemImage: "books.vertical")
                 }
                 NavigationLink(destination: AuthorsView()) {
@@ -47,8 +48,10 @@ struct SidebarView: View {
     }
 }
 
+#if DEBUG
 struct SidebarView_Previews: PreviewProvider {
     static var previews: some View {
         SidebarView()
     }
 }
+#endif

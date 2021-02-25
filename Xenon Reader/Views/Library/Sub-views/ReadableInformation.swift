@@ -34,7 +34,9 @@ struct ReadableInformation: View {
                     Spacer()
                     
                     Button(action: {
-                        isPresented = false
+                        withAnimation {
+                            isPresented = false
+                        }
                     }) {
                         Image(systemName: "xmark.circle")
                             .resizable()
@@ -42,6 +44,7 @@ struct ReadableInformation: View {
                             .frame(width: 20, height: 20)
                     }
                     .buttonStyle(PlainButtonStyle())
+                    .keyboardShortcut(.cancelAction)
                 }
                 
                 Divider()
@@ -64,6 +67,22 @@ struct ReadableInformation: View {
                             // TODO: Figure out a way of rendering HTML natively with SwiftUI
                             Text(description)
                         }
+                    }
+                    
+                    if let toc = epub?.tableOfContents {
+                        Divider()
+                        
+                        if let subTable = toc.subTable {
+//                            Text("\"\(subTable[0].label)\" -- \(subTable[0].item ?? "No Document")")
+                            ForEach(subTable, id: \.id) { item in
+                                
+                                Text("\"\(item.label)\" -- \(item.item ?? "No Document")")
+                            }
+                        } else {
+                            Text("No subtable")
+                        }
+                    } else {
+                        Text("No TOC")
                     }
                 }
             }

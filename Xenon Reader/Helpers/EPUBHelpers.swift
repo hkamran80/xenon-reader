@@ -13,6 +13,7 @@ struct EpubLoader {
     let epub: EPUBDocument?
 
     init(withUrl fileUrl: URL) {
+        // TODO: Create app directory in Documents for extracting EPUBs, instead of chucking them into the root Documents folder
         epub = EPUBDocument(url: fileUrl)
     }
 
@@ -26,7 +27,6 @@ struct EpubLoader {
     }
 }
 
-// TODO: Create default/placeholder cover
 func loadImage(_ imagePath: URL?) -> NSImage? {
     if let imagePathUrl = imagePath {
         do {
@@ -36,6 +36,14 @@ func loadImage(_ imagePath: URL?) -> NSImage? {
             print(error.localizedDescription)
             return nil
         }
+    } else {
+        return NSImage(named: "DefaultCover")
+    }
+}
+
+func getEpubPage(libraryUrl: String, epubFilename: String, path: String) -> String? {
+    if let unzippedDirectory: URL = unZipEpub(libraryUrl: libraryUrl, epubFilename: epubFilename) {
+        return unzippedDirectory.absoluteString
     } else {
         return nil
     }

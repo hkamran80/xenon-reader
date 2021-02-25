@@ -27,11 +27,34 @@ struct FileListView: View {
             List(self.xrShared.fileList, id: \.self) { file in
                 Text(file)
             }
-            
+
             Divider()
-            
-            List(self.xrShared.publishers, id: \.id) { publisher in
-                Text("\(publisher.name) - \(publisher.readables.count)")
+
+            Button(action: {
+                if epub == nil {
+                    for _epub in self.xrShared.epubs {
+                        if _epub?.title == "Genius--The Con" {
+                            epub = _epub
+                        }
+                    }
+                }
+                
+                print(epub?.tableOfContents.subTable?[0] ?? "No subtable")
+            }) {
+                Text("Table of Contents")
+            }
+            Button(action: {
+                if epub == nil {
+                    for _epub in self.xrShared.epubs {
+                        if _epub?.title == "Genius--The Con" {
+                            epub = _epub
+                        }
+                    }
+                }
+                
+                print(epub?.cover)
+            }) {
+                Text("Cover URL")
             }
         }
         .padding()

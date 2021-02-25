@@ -21,8 +21,10 @@ struct HTMLStringView: NSViewRepresentable {
     }
 }
 
-struct WebKitView_Previews: PreviewProvider {
+#if DEBUG
+struct HTMLStringView_Previews: PreviewProvider {
     static var previews: some View {
         HTMLStringView(htmlContent: "<strong>Bold <i>Italic!</i></strong>")
     }
 }
+#endif

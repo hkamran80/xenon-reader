@@ -16,8 +16,21 @@ class XRShared: ObservableObject {
     @Published var authors: [Author] = []
     @Published var publishers: [Publisher] = []
     @Published var categories: [ReadableCategory] = []
+    
+    @Published var mainViewType: ViewType = .library
+    @Published var activeReadable: EPUBDocument? = nil
+    
     @Published var fileList: [String] = []
     @Published var realmInstance: Realm? = initializeRealm()
+    
+    @Published var categoryCreationSheet: Bool = false
+}
+
+enum ViewType: String, CaseIterable, Identifiable {
+    case library
+    case reader
+    
+    var id: String { self.rawValue }
 }
 
 enum LibrarySortTypes: String, CaseIterable, Identifiable {    
@@ -31,10 +44,6 @@ enum LibrarySortTypes: String, CaseIterable, Identifiable {
     case publisherReversed
     
     var id: String { self.rawValue }
-}
-
-func readableCount(count: Int) -> String {
-    return count == 1 ? "\(count) Readable" : "\(count) Readables"
 }
 
 // TODO: Create extension to EPUBDocument which adds the hash as a parameter
@@ -68,6 +77,9 @@ struct LibraryLoader {
         self.xrShared.epubs = loadLibraryItems(libraryUrl: self.libraryUrl, directoryList: self.xrShared.fileList)
         self.xrShared.authors = loadAuthors(readableList: self.xrShared.epubs)
         self.xrShared.publishers = loadPublishers(readableList: self.xrShared.epubs)
+        
+        // TODO: Remove manual active readable setting
+        //self.xrShared.activeReadable = self.xrShared.epubs[1]
     }
 }
 

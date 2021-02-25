@@ -26,14 +26,10 @@ struct Xenon_ReaderApp: App {
         .commands {
             CommandGroup(before: .newItem) {
                 // TODO: Add keyboard shortcut
-                // TODO: Fix sheet
                 Button(action: {
                     print("New category")
                 }) {
                     Text("New Category")
-                }
-                .sheet(isPresented: $categoryCreationSheet) {
-                    NewCategorySheet(isPresented: $categoryCreationSheet)
                 }
                 
             }
@@ -47,7 +43,7 @@ struct Xenon_ReaderApp: App {
                 .keyboardShortcut("R", modifiers: .command)
             }
 
-            CommandGroup(after: .sidebar) {
+            CommandGroup(before: .sidebar) {
                 Picker("Library View", selection: $viewType) {
                     Label("Grid", systemImage: "square.grid.3x2")
                         .tag(ViewTypes.grid)
@@ -76,14 +72,9 @@ struct Xenon_ReaderApp: App {
                     Label("Last Viewed", systemImage: "eyeglasses")
                         .tag(LibrarySortTypes.lastViewed)
                 }
-
-                Divider()
-
-                Button(action: toggleSidebar) {
-                    Text("Toggle Sidebar")
-                }
-                .keyboardShortcut("S", modifiers: [.command, .shift])
             }
+            
+            SidebarCommands()
         }
 
         #if os(macOS)

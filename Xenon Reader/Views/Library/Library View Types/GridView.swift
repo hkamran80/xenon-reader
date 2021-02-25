@@ -9,6 +9,7 @@ import EPUBKit
 import SwiftUI
 
 struct GridView: View {
+    @EnvironmentObject var xrShared: XRShared
     let epubs: [EPUBDocument?]
 
     let columns = [
@@ -20,6 +21,10 @@ struct GridView: View {
             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                 ForEach(epubs, id: \.self) { epub in
                     GridViewBook(epub: epub)
+                        .onTapGesture(count: 2, perform: {
+                            self.xrShared.activeReadable = epub
+                            self.xrShared.mainViewType = .reader
+                        })
                 }
             }
             .padding(.horizontal)
