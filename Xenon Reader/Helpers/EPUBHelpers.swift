@@ -11,19 +11,12 @@ import Foundation
 
 struct EpubLoader {
     let epub: EPUBDocument?
+    let id: String
 
     init(withUrl fileUrl: URL) {
-        // TODO: Create app directory in Documents for extracting EPUBs, instead of chucking them into the root Documents folder
-        epub = EPUBDocument(url: fileUrl)
-    }
-
-    init(fromBundle bundleFilename: String) {
-        if let path = Bundle.main.url(forResource: bundleFilename.contains(".epub") ? bundleFilename.replacingOccurrences(of: ".epub", with: "") : bundleFilename, withExtension: "epub"), let document = EPUBDocument(url: path)
-        {
-            epub = document
-        } else {
-            epub = nil
-        }
+        // TODO: Make sure the unzipping doesn't create an infinite amount of folders by regenerating them at application startup
+        id = fileUrl.lastPathComponent.replacingOccurrences(of: ".epub", with: "").removingPercentEncoding!
+        epub = EPUBDocument(url: fileUrl, extractionDirectory: getAppDocumentsDirectory().appendingPathComponent(id))
     }
 }
 
@@ -41,10 +34,6 @@ func loadImage(_ imagePath: URL?) -> NSImage? {
     }
 }
 
-func getEpubPage(libraryUrl: String, epubFilename: String, path: String) -> String? {
-    if let unzippedDirectory: URL = unZipEpub(libraryUrl: libraryUrl, epubFilename: epubFilename) {
-        return unzippedDirectory.absoluteString
-    } else {
-        return nil
-    }
+func getEpubPage(epubFilename: String, path: String) -> String? {
+    return nil
 }

@@ -14,13 +14,16 @@ struct Xenon_ReaderApp: App {
     @AppStorage("libraryPath") var libraryPath = ""
     @AppStorage("libraryUrl") var libraryUrl = ""
     @StateObject var xrShared = XRShared()
-    
+
     @State private var categoryCreationSheet: Bool = false
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear(perform: LibraryLoader(libraryPath: libraryPath, libraryUrl: libraryUrl, xrShared: self.xrShared).scanFiles)
+                .onAppear(perform: {
+                    createAppDocumentsDirectory()
+                    LibraryLoader(libraryPath: libraryPath, libraryUrl: libraryUrl, xrShared: self.xrShared).scanFiles()
+                })
                 .environmentObject(self.xrShared)
         }
         .commands {
@@ -31,7 +34,6 @@ struct Xenon_ReaderApp: App {
                 }) {
                     Text("New Category")
                 }
-                
             }
 
             CommandGroup(after: .newItem) {
@@ -73,7 +75,7 @@ struct Xenon_ReaderApp: App {
                         .tag(LibrarySortTypes.lastViewed)
                 }
             }
-            
+
             SidebarCommands()
         }
 

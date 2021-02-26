@@ -1,8 +1,8 @@
 //
-//  Filesystem.swift
+//  FilesystemHelpers.swift
 //  Xenon Reader
 //
-//  Created by H. Kamran on 2/16/21.
+//  Created by H. Kamran on 2/25/21.
 //
 
 import EPUBKit
@@ -41,24 +41,27 @@ func getDocumentsDirectory() -> URL? {
     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 }
 
+func createAppDocumentsDirectory() {
+    let documentsDirectory: URL = getDocumentsDirectory()!
+    let appDirectory: URL = documentsDirectory.appendingPathComponent("Xenon Reader", isDirectory: true)
+    
+    let fm = FileManager.default
+    
+    do {
+        try fm.createDirectory(atPath: appDirectory.path, withIntermediateDirectories: true, attributes: nil)
+    } catch {
+        print("An error occurred when creating the application directory: \(error.localizedDescription)")
+    }
+}
+
+func getAppDocumentsDirectory() -> URL {
+    return getDocumentsDirectory()?.appendingPathComponent("Xenon Reader", isDirectory: true) ?? getDocumentsDirectory()!
+}
+
 func generateFileUrl(libraryUrl: String, filename: String, fileExtension: String) -> URL? {
     return URL(fileURLWithPath: filename, relativeTo: URL(string: libraryUrl)).appendingPathExtension(fileExtension)
 }
 
-func unZipEpub(libraryUrl: String, epubFilename: String) -> URL? {
-    Zip.addCustomFileExtension("epub")
-
-    do {
-        let pathUrl = generateFileUrl(libraryUrl: libraryUrl, filename: epubFilename, fileExtension: "epub")!
-        if let documentsDirectory = getDocumentsDirectory() {
-            let extractionPath: URL = documentsDirectory.appendingPathComponent("Xenon Reader", isDirectory: true).appendingPathComponent(epubFilename, isDirectory: true)
-            try Zip.unzipFile(pathUrl, destination: documentsDirectory.appendingPathComponent("Xenon Reader", isDirectory: true).appendingPathComponent(epubFilename, isDirectory: true), overwrite: true, password: nil)
-            return extractionPath
-        } else {
-            return try Zip.quickUnzipFile(pathUrl)
-        }
-    } catch {
-        print(error.localizedDescription)
-        return nil
-    }
+func getEpubDirectory(epubFilename: String) -> URL? {
+    return nil
 }

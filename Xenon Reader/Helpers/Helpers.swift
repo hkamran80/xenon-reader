@@ -16,24 +16,25 @@ class XRShared: ObservableObject {
     @Published var authors: [Author] = []
     @Published var publishers: [Publisher] = []
     @Published var categories: [ReadableCategory] = []
-    
-    @Published var mainViewType: ViewType = .library
+
+    @Published var mainViewType: MainViewType = .library
     @Published var activeReadable: EPUBDocument? = nil
-    
+
+    @Published var epubIds: [String: String] = [:]
     @Published var fileList: [String] = []
     @Published var realmInstance: Realm? = initializeRealm()
-    
+
     @Published var categoryCreationSheet: Bool = false
 }
 
-enum ViewType: String, CaseIterable, Identifiable {
+enum MainViewType: String, CaseIterable, Identifiable {
     case library
     case reader
-    
+
     var id: String { self.rawValue }
 }
 
-enum LibrarySortTypes: String, CaseIterable, Identifiable {    
+enum LibrarySortTypes: String, CaseIterable, Identifiable {
     case title
     case titleReversed
     case author
@@ -42,7 +43,7 @@ enum LibrarySortTypes: String, CaseIterable, Identifiable {
     case lastViewed
     case publisher
     case publisherReversed
-    
+
     var id: String { self.rawValue }
 }
 
@@ -77,9 +78,6 @@ struct LibraryLoader {
         self.xrShared.epubs = loadLibraryItems(libraryUrl: self.libraryUrl, directoryList: self.xrShared.fileList)
         self.xrShared.authors = loadAuthors(readableList: self.xrShared.epubs)
         self.xrShared.publishers = loadPublishers(readableList: self.xrShared.epubs)
-        
-        // TODO: Remove manual active readable setting
-        //self.xrShared.activeReadable = self.xrShared.epubs[1]
     }
 }
 

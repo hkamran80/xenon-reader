@@ -50,7 +50,7 @@ struct GridViewBook: View {
 #if DEBUG
     struct GridViewBook_Previews: PreviewProvider {
         static var previews: some View {
-            GridViewBook(epub: EpubLoader(fromBundle: "Genius").epub)
+            GridViewBook(epub: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!))
         }
     }
 #endif
