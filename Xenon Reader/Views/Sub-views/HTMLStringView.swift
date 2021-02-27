@@ -9,6 +9,7 @@ import Cocoa
 import SwiftUI
 import WebKit
 
+// TODO: Add resource importing (stylesheets) and non-TOC page support
 struct HTMLStringView: NSViewRepresentable {
     let htmlContent: String
 

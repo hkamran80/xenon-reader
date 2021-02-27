@@ -69,11 +69,12 @@ struct ReadableInformation: View {
                         }
                     }
                     
+                    // TODO: Remove after reader rendering works
                     if let toc = epub?.tableOfContents {
                         Divider()
                         
                         if let subTable = toc.subTable {
-//                            Text("\"\(subTable[0].label)\" -- \(subTable[0].item ?? "No Document")")
+                            // Text("\"\(subTable[0].label)\" -- \(subTable[0].item ?? "No Document")")
                             ForEach(subTable, id: \.id) { item in
                                 
                                 Text("\"\(item.label)\" -- \(item.item ?? "No Document")")

@@ -19,7 +19,7 @@ struct ReaderSidebarView: View {
             if let subTable = toc?.subTable {
                 ForEach(subTable, id: \.id) { item in
                     NavigationLink(
-                        destination: ReaderRenderView(filename: item.item)) {
+                        destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
                             Text(item.label)
                     }
                 }

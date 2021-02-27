@@ -26,8 +26,10 @@ struct SidebarView: View {
             }
 
             Section(header: Text("Categories")) {
-                NavigationLink(destination: Text("Planned: Category 1")) {
-                    Label("First Category", systemImage: "tray.circle")
+                ForEach(self.xrShared.categories, id: \.id) { category in
+                    NavigationLink(destination: Text("Planned: \(category.name)")) {
+                        Label(category.name, systemImage: category.imageName)
+                    }
                 }
             }
 

@@ -9,16 +9,20 @@ import Cocoa
 import EPUBKit
 import Foundation
 
+// MARK: Wrapper Struct
+
 struct EpubLoader {
     let epub: EPUBDocument?
     let id: String
 
     init(withUrl fileUrl: URL) {
-        // TODO: Make sure the unzipping doesn't create an infinite amount of folders by regenerating them at application startup
+        // TODO: Figure out a way of handling readables with duplicate titles
         id = fileUrl.lastPathComponent.replacingOccurrences(of: ".epub", with: "").removingPercentEncoding!
         epub = EPUBDocument(url: fileUrl, extractionDirectory: getAppDocumentsDirectory().appendingPathComponent(id))
     }
 }
+
+// MARK: Functions
 
 func loadImage(_ imagePath: URL?) -> NSImage? {
     if let imagePathUrl = imagePath {
@@ -34,6 +38,16 @@ func loadImage(_ imagePath: URL?) -> NSImage? {
     }
 }
 
-func getEpubPage(epubFilename: String, path: String) -> String? {
-    return nil
+func getEpubPage(epubFilename: String, path: String) -> Data? {
+    let pathUrl = getEpubPageUrl(epubFilename: epubFilename, path: path)
+    
+    do {
+        return try Data(contentsOf: pathUrl)
+    } catch {
+        print("[P] epubFilename: \(epubFilename)")
+        print("[P] path: \(path)")
+        print("[ERROR] \(error.localizedDescription)")
+        
+        return nil
+    }
 }

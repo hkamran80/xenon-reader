@@ -19,38 +19,26 @@ struct GridViewBook: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 250)
 
-            Text(epub?.title ?? "Unknown Title")
-                .font(.headline)
-                .bold()
-                .multilineTextAlignment(.center)
+            Group {
+                Text(epub?.title ?? "Unknown Title")
+                    .font(.headline)
+                    .bold()
+                    .multilineTextAlignment(.center)
 
-            Text(epub?.author ?? "Unknown Author")
-                .font(.subheadline)
-                .multilineTextAlignment(.center)
-        }
-        .contextMenu {
-            Button(action: {
-                informationSheet = true
-            }) {
-                Label("Information", image: "info.circle")
+                Text(epub?.author ?? "Unknown Author")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
             }
-
-            Divider()
-
-            Button(action: {}) {
-                Label("Add to Category", image: "tray")
-            }
+            .frame(width: 150)
         }
-        .sheet(isPresented: $informationSheet) {
-            ReadableInformation(isPresented: $informationSheet, epub: epub)
-        }
+        .modifier(LibraryBookModifier(epub: epub))
     }
 }
 
 #if DEBUG
-    struct GridViewBook_Previews: PreviewProvider {
-        static var previews: some View {
-            GridViewBook(epub: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!))
-        }
+struct GridViewBook_Previews: PreviewProvider {
+    static var previews: some View {
+        GridViewBook(epub: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!))
     }
+}
 #endif

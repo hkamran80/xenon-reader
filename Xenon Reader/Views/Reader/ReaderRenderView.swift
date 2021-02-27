@@ -5,23 +5,36 @@
 //  Created by H. Kamran on 2/24/21.
 //
 
+import EPUBKit
 import SwiftUI
 
 // TODO: Create render view
 struct ReaderRenderView: View {
-    @AppStorage("libraryUrl") var libraryUrl = ""
+    let activeReadable: EPUBDocument?
     let filename: String?
-    
-    // TODO: Add button for calling unZipEpub()
+
+    @State private var htmlFileUrl: URL? = nil
+    @State private var htmlDirectoryUrl: URL? = nil
     var body: some View {
-        Text(filename ?? "Unknown filename")
+        Group {
+            if let fileUrl = htmlFileUrl, let directoryUrl = htmlDirectoryUrl {
+                FileWebView(fileURL: fileUrl, directoryURL: directoryUrl)
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+            }
+        }
+        .onAppear(perform: {
+            htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable?.title ?? "Unknown Title", path: filename ?? "")
+            htmlDirectoryUrl = getEpubPageDirectoryUrl(epubFilename: activeReadable?.title ?? "Unknown Title", path: filename ?? "")
+        })
     }
 }
 
 #if DEBUG
 struct ReaderRenderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderRenderView(filename: "")
+        ReaderRenderView(activeReadable: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!), filename: "")
     }
 }
 #endif
