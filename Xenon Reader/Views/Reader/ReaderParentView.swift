@@ -11,6 +11,7 @@ import SwiftUI
 struct ReaderParentView: View {
     @EnvironmentObject var xrShared: XRShared
 
+    
     var body: some View {
         if xrShared.activeReadable != nil {
             ReaderSidebarView()

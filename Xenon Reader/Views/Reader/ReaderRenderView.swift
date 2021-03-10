@@ -17,6 +17,8 @@ struct ReaderRenderView: View {
     @State private var htmlDirectoryUrl: URL? = nil
 
     var body: some View {
+        let _ = update()
+        
         Group {
             if let fileUrl = htmlFileUrl, let directoryUrl = htmlDirectoryUrl {
                 FileWebView(fileURL: fileUrl, directoryURL: directoryUrl)
@@ -29,6 +31,11 @@ struct ReaderRenderView: View {
             htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? "")
             htmlDirectoryUrl = getEpubPageDirectoryUrl(epubId: activeReadable!.id, storageLocation: .applicationSupport)
         })
+    }
+    
+    func update() {
+        htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? "")
+        htmlDirectoryUrl = getEpubPageDirectoryUrl(epubId: activeReadable!.id, storageLocation: .applicationSupport)
     }
 }
 
