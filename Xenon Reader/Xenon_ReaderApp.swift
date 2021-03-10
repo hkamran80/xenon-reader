@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Xenon_ReaderApp: App {
-    @AppStorage("libraryViewType") var viewType: ViewTypes = .grid
+    @AppStorage("libraryViewType") var viewType: LibraryViewTypes = .grid
     @AppStorage("librarySortType") var librarySort: LibrarySortTypes = .title
     @AppStorage("libraryPath") var libraryPath = ""
     @AppStorage("libraryUrl") var libraryUrl = ""
@@ -48,9 +48,9 @@ struct Xenon_ReaderApp: App {
             CommandGroup(before: .sidebar) {
                 Picker("Library View", selection: $viewType) {
                     Label("Grid", systemImage: "square.grid.3x2")
-                        .tag(ViewTypes.grid)
+                        .tag(LibraryViewTypes.grid)
                     Label("List", systemImage: "tablecells")
-                        .tag(ViewTypes.list)
+                        .tag(LibraryViewTypes.list)
                 }
 
                 Picker("Library Sort", selection: $librarySort) {

@@ -9,7 +9,7 @@ import EPUBKit
 import SwiftUI
 
 struct LibraryView: View {
-    @AppStorage("libraryViewType") var viewType: ViewTypes = .grid
+    @AppStorage("libraryViewType") var viewType: LibraryViewTypes = .grid
     @EnvironmentObject var xrShared: XRShared
 
     let epubs: [EpubLoader]

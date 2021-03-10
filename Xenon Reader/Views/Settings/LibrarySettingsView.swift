@@ -10,13 +10,16 @@ import SwiftUI
 struct LibrarySettingsView: View {
     @AppStorage("libraryPath") var libraryPath = ""
     @AppStorage("libraryUrl") var libraryUrl = ""
-    @AppStorage("libraryViewType") var viewType: ViewTypes = .grid
+    @AppStorage("libraryViewType") var viewType: LibraryViewTypes = .grid
     @AppStorage("librarySortType") var librarySort: LibrarySortTypes = .title
 
     var body: some View {
         Form {
-            Section(header: Text("Library Folder")) {
+            Section {
                 HStack {
+                    Text("Library Folder")
+                        .bold()
+
                     Text(libraryPath)
 
                     Button("Select Folder") {
@@ -40,12 +43,12 @@ struct LibrarySettingsView: View {
                 }
             }
 
-            Section(header: Text("Library View Type")) {
+            Section {
                 Picker("Library View", selection: $viewType) {
                     Label("Grid", systemImage: "square.grid.3x2")
-                        .tag(ViewTypes.grid)
+                        .tag(LibraryViewTypes.grid)
                     Label("List", systemImage: "tablecells")
-                        .tag(ViewTypes.list)
+                        .tag(LibraryViewTypes.list)
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }

@@ -11,7 +11,6 @@
 		1200347425E3C2CE00F467F1 /* NewCategorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1200347325E3C2CE00F467F1 /* NewCategorySheet.swift */; };
 		1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E25125DCBCE0001D999E /* ToolbarModifier.swift */; };
 		1203E26625DCE0EB001D999E /* EPUBDocumentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203E26525DCE0EB001D999E /* EPUBDocumentExtensions.swift */; };
-		121219E625E4C7590082C342 /* TReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121219E525E4C7590082C342 /* TReaderView.swift */; };
 		1220F94625E63FAC0077BEC8 /* LibraryParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1220F94525E63FAC0077BEC8 /* LibraryParentView.swift */; };
 		1220F94925E640120077BEC8 /* ReaderParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1220F94825E640120077BEC8 /* ReaderParentView.swift */; };
 		1220F95525E641A70077BEC8 /* ReaderSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1220F95425E641A70077BEC8 /* ReaderSidebarView.swift */; };
@@ -56,7 +55,6 @@
 		1203E25125DCBCE0001D999E /* ToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarModifier.swift; sourceTree = "<group>"; };
 		1203E26125DCDD86001D999E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		1203E26525DCE0EB001D999E /* EPUBDocumentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBDocumentExtensions.swift; sourceTree = "<group>"; };
-		121219E525E4C7590082C342 /* TReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TReaderView.swift; sourceTree = "<group>"; };
 		1220F94525E63FAC0077BEC8 /* LibraryParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryParentView.swift; sourceTree = "<group>"; };
 		1220F94825E640120077BEC8 /* ReaderParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderParentView.swift; sourceTree = "<group>"; };
 		1220F95425E641A70077BEC8 /* ReaderSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSidebarView.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		1200346D25E3A73600F467F1 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
-				121219E525E4C7590082C342 /* TReaderView.swift */,
 				12F5356325E1FEF500D11F49 /* VariablesView.swift */,
 				12F5355725E0BEC500D11F49 /* FileListView.swift */,
 			);
@@ -389,7 +386,6 @@
 				12F5356B25E223AC00D11F49 /* SidebarView.swift in Sources */,
 				1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */,
 				12F22C4A25E43907001BB4AE /* ListViewBook.swift in Sources */,
-				121219E625E4C7590082C342 /* TReaderView.swift in Sources */,
 				1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */,
 				12F4FC3625F87299005ACFB5 /* ReaderSettingsView.swift in Sources */,
 				1220F95B25E650C10077BEC8 /* ReaderRenderView.swift in Sources */,

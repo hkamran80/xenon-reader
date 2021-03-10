@@ -28,10 +28,6 @@ struct ReaderRenderView: View {
         .onAppear(perform: {
             htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? "")
             htmlDirectoryUrl = getEpubPageDirectoryUrl(epubId: activeReadable!.id, storageLocation: .applicationSupport)
-            
-//            htmlDirectoryUrl = getEpubPageDirectoryUrl(epubFilename: activeReadable!.id, path: filename ?? "")
-//            getEpubPageDirectoryUrl2(epubManifest: (activeReadable?.epub?.manifest.items)!, storageLocation: .applicationSupport)
-//            getEpubPageDirectoryUrl2(epubId: activeReadable!.id, storageLocation: .applicationSupport)
         })
     }
 }

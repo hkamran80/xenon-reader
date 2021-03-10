@@ -9,12 +9,13 @@ import EPUBKit
 import SwiftUI
 
 struct ListView: View {
+    @AppStorage("librarySortType") var librarySort: LibrarySortTypes = .title
     @EnvironmentObject var xrShared: XRShared
 
     let epubs: [EpubLoader]
     var body: some View {
         List {
-            ForEach(epubs, id: \.id) { epub in
+            ForEach(sortLibraryList(epubList: epubs, sortType: librarySort), id: \.id) { epub in
                 ListViewBook(epub: epub.epub)
                     .onTapGesture(count: 2, perform: {
                         self.xrShared.activeReadable = epub

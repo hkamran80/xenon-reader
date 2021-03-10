@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ToolbarModifier: ViewModifier {
-    @AppStorage("libraryViewType") var viewType: ViewTypes = .grid
+    @AppStorage("libraryViewType") var viewType: LibraryViewTypes = .grid
     @State var xrShared: XRShared
 
     func body(content: Content) -> some View {
@@ -36,9 +36,9 @@ struct ToolbarModifier: ViewModifier {
 
                         Picker("Library View", selection: $viewType) {
                             Label("Grid", systemImage: "square.grid.3x2")
-                                .tag(ViewTypes.grid)
+                                .tag(LibraryViewTypes.grid)
                             Label("List", systemImage: "tablecells")
-                                .tag(ViewTypes.list)
+                                .tag(LibraryViewTypes.list)
                         }
                         .pickerStyle(SegmentedPickerStyle())
 
