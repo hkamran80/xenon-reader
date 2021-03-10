@@ -10,14 +10,13 @@ import SwiftUI
 
 struct ReaderParentView: View {
     @EnvironmentObject var xrShared: XRShared
-    let epub: EPUBDocument?
 
     var body: some View {
-        if let loadedEpub = epub {
-            ReaderSidebarView(toc: loadedEpub.tableOfContents)
+        if xrShared.activeReadable != nil {
+            ReaderSidebarView()
                 .environmentObject(self.xrShared)
 
-            Text("Reader here")
+            ReaderRenderView(activeReadable: xrShared.activeReadable, filename: xrShared.activeReadable?.epub?.tableOfContents.subTable?[0].item)
         } else {
             EmptyView()
             
@@ -29,7 +28,7 @@ struct ReaderParentView: View {
 #if DEBUG
 struct ReaderParentView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderParentView(epub: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/SpySchoolBritishInvasion_StuartGibbs.epub")!))
+        ReaderParentView()
             .environmentObject(XRShared())
     }
 }

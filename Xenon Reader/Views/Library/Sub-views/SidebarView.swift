@@ -14,7 +14,7 @@ struct SidebarView: View {
     var body: some View {
         List {
             Section(header: Text("Library")) {
-                NavigationLink(destination: LibraryView(epubs: self.xrShared.epubs), isActive: $defaultItemActive) {
+                NavigationLink(destination: LibraryView(epubs: xrShared.epubs), isActive: $defaultItemActive) {
                     Label("All Books", systemImage: "books.vertical")
                 }
                 NavigationLink(destination: AuthorsView()) {

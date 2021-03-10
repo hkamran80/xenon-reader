@@ -14,7 +14,7 @@ struct LibraryParentView: View {
         SidebarView()
             .environmentObject(self.xrShared)
 
-        LibraryView(epubs: self.xrShared.epubs)
+        LibraryView(epubs: xrShared.epubs)
             .environmentObject(self.xrShared)
     }
 }

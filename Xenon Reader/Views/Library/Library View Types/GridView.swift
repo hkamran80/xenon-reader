@@ -10,7 +10,8 @@ import SwiftUI
 
 struct GridView: View {
     @EnvironmentObject var xrShared: XRShared
-    let epubs: [EPUBDocument?]
+
+    let epubs: [EpubLoader]
 
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -19,8 +20,8 @@ struct GridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                ForEach(epubs, id: \.self) { epub in
-                    GridViewBook(epub: epub)
+                ForEach(epubs, id: \.id) { epub in
+                    GridViewBook(epub: epub.epub)
                         .onTapGesture(count: 2, perform: {
                             self.xrShared.activeReadable = epub
                             self.xrShared.mainViewType = .reader
@@ -33,9 +34,10 @@ struct GridView: View {
 }
 
 #if DEBUG
-    struct GridView_Previews: PreviewProvider {
-        static var previews: some View {
-            GridView(epubs: [EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!)])
-        }
+struct GridView_Previews: PreviewProvider {
+    static var previews: some View {
+        GridView(epubs: [])
+            .environmentObject(XRShared())
     }
+}
 #endif

@@ -11,9 +11,9 @@ import Foundation
 
 // MARK: Wrapper Struct
 
-struct EpubLoader {
-    let epub: EPUBDocument?
+struct EpubLoader: Hashable {
     let id: String
+    let epub: EPUBDocument?
 
     init(withUrl fileUrl: URL) {
         // TODO: Figure out a way of handling readables with duplicate titles
@@ -40,14 +40,14 @@ func loadImage(_ imagePath: URL?) -> NSImage? {
 
 func getEpubPage(epubFilename: String, path: String) -> Data? {
     let pathUrl = getEpubPageUrl(epubFilename: epubFilename, path: path)
-    
+
     do {
         return try Data(contentsOf: pathUrl)
     } catch {
         print("[P] epubFilename: \(epubFilename)")
         print("[P] path: \(path)")
         print("[ERROR] \(error.localizedDescription)")
-        
+
         return nil
     }
 }

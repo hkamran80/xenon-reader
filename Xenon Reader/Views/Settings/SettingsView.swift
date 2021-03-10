@@ -9,22 +9,22 @@ import SwiftUI
 
 struct SettingsView: View {
     private enum Tabs: Hashable {
-        case general, debug
+        case library, reader
     }
 
     var body: some View {
         TabView {
-            GeneralSettingsView()
+            LibrarySettingsView()
                 .tabItem {
-                    Label("General", systemImage: "gear")
+                    Label("Library", systemImage: "books.vertical")
                 }
-                .tag(Tabs.general)
+                .tag(Tabs.library)
 
-            DebugSettingsView()
+            ReaderSettingsView()
                 .tabItem {
-                    Label("Debug", systemImage: "ladybug")
+                    Label("Reader", systemImage: "book")
                 }
-                .tag(Tabs.debug)
+                .tag(Tabs.reader)
         }
         .padding(20)
         .frame(minWidth: 350, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
@@ -32,9 +32,9 @@ struct SettingsView: View {
 }
 
 #if DEBUG
-    struct SettingsView_Previews: PreviewProvider {
-        static var previews: some View {
-            SettingsView()
-        }
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
     }
+}
 #endif

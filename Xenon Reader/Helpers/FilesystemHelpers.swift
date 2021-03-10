@@ -75,7 +75,7 @@ func getEpubDirectory(epubFilename: String) -> URL? {
 func getEpubPageUrl(epubFilename: String, path: String) -> URL {
     let epubDirectory = getEpubDirectory(epubFilename: epubFilename)
     let pathComponents = path.removingPercentEncoding!.components(separatedBy: ".")
-    
+
     return URL(fileURLWithPath: pathComponents[0], relativeTo: epubDirectory).appendingPathExtension(pathComponents[1])
 }
 
@@ -83,8 +83,8 @@ func getEpubPageDirectoryUrl(epubFilename: String, path: String) -> URL {
     let epubDirectory = getEpubDirectory(epubFilename: epubFilename)
     let pathComponents = path.removingPercentEncoding!.components(separatedBy: ".")
     var pathFileComponents = pathComponents[0].components(separatedBy: "/")
-    
+
     pathFileComponents.removeLast()
-    
+
     return URL(fileURLWithPath: pathFileComponents.joined(separator: "/"), isDirectory: true, relativeTo: epubDirectory)
 }

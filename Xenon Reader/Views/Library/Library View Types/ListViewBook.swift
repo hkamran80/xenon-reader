@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ListViewBook: View {
     let epub: EPUBDocument?
-    @State private var informationSheet: Bool = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,23 +20,7 @@ struct ListViewBook: View {
             Text(epub?.author ?? "Unknown Author")
                 .font(.subheadline)
         }
-//        .padding()
-        .contextMenu {
-            Button(action: {
-                informationSheet = true
-            }) {
-                Label("Information", image: "info.circle")
-            }
-
-            Divider()
-
-            Button(action: {}) {
-                Label("Add to Category", image: "tray")
-            }
-        }
-        .sheet(isPresented: $informationSheet) {
-            ReadableInformation(isPresented: $informationSheet, epub: epub)
-        }
+        .modifier(LibraryBookModifier(epub: epub))
     }
 }
 

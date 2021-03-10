@@ -12,8 +12,7 @@ struct LibraryView: View {
     @AppStorage("libraryViewType") var viewType: ViewTypes = .grid
     @EnvironmentObject var xrShared: XRShared
 
-    let epubs: [EPUBDocument?]
-
+    let epubs: [EpubLoader]
     var body: some View {
         switch viewType {
             case .grid: GridView(epubs: epubs).environmentObject(self.xrShared)
@@ -25,7 +24,8 @@ struct LibraryView: View {
 #if DEBUG
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView(epubs: [EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/SpySchoolBritishInvasion_StuartGibbs.epub")!)])
+        LibraryView(epubs: [])
+            .environmentObject(XRShared())
     }
 }
 #endif

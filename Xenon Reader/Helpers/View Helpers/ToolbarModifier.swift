@@ -23,7 +23,7 @@ struct ToolbarModifier: ViewModifier {
                             Image(systemName: "chevron.left")
                         }
                     }
-                    
+
                     Button(action: toggleSidebar) {
                         Image(systemName: "sidebar.left")
                             .help("Toggle Sidebar")
@@ -45,6 +45,13 @@ struct ToolbarModifier: ViewModifier {
                             print("Searching...")
                         }) {
                             Image(systemName: "magnifyingglass")
+                        }
+                    } else {
+                        Button(action: {}) {
+                            Label("Previous Page", systemImage: "chevron.left")
+                        }
+                        Button(action: {}) {
+                            Label("Next Page", systemImage: "chevron.right")
                         }
                     }
                 }

@@ -11,14 +11,14 @@ import Foundation
 import RealmSwift
 
 class XRShared: ObservableObject {
-    @Published var epubs: [EPUBDocument?] = []
+    @Published var epubs: [EpubLoader] = []
     @Published var authors: [Author] = []
     @Published var publishers: [Publisher] = []
     // TODO: Reset to empty array
     @Published var categories: [ReadableCategory] = [ReadableCategory(id: UUID().uuidString, name: "First Category", imageName: "tray.circle", creationDate: Date())]
 
     @Published var mainViewType: MainViewType = .library
-    @Published var activeReadable: EPUBDocument? = nil
+    @Published var activeReadable: EpubLoader? = nil
     
     @Published var fileList: [String] = []
     @Published var realmInstance: Realm? = initializeRealm()

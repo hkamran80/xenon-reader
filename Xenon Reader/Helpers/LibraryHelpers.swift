@@ -27,12 +27,12 @@ struct LibraryLoader {
 // MARK: Functions
 
 // TODO: Make function asynchronous
-func loadLibraryItems(libraryUrl: String, directoryList: [String]) -> [EPUBDocument?] {
-    var epubs: [EPUBDocument?] = []
+func loadLibraryItems(libraryUrl: String, directoryList: [String]) -> [EpubLoader] {
+    var epubs: [EpubLoader] = []
 
     for filename in directoryList {
         let fileUrl = generateFileUrl(libraryUrl: libraryUrl, filename: filename.replacingOccurrences(of: ".epub", with: ""), fileExtension: "epub")!
-        let epub = EpubLoader(withUrl: fileUrl).epub
+        let epub = EpubLoader(withUrl: fileUrl)
 
         epubs.append(epub)
     }

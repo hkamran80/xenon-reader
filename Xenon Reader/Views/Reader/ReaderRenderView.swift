@@ -10,11 +10,12 @@ import SwiftUI
 
 // TODO: Create render view
 struct ReaderRenderView: View {
-    let activeReadable: EPUBDocument?
+    let activeReadable: EpubLoader?
     let filename: String?
 
     @State private var htmlFileUrl: URL? = nil
     @State private var htmlDirectoryUrl: URL? = nil
+    
     var body: some View {
         Group {
             if let fileUrl = htmlFileUrl, let directoryUrl = htmlDirectoryUrl {
@@ -25,8 +26,12 @@ struct ReaderRenderView: View {
             }
         }
         .onAppear(perform: {
-            htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable?.title ?? "Unknown Title", path: filename ?? "")
-            htmlDirectoryUrl = getEpubPageDirectoryUrl(epubFilename: activeReadable?.title ?? "Unknown Title", path: filename ?? "")
+            htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? "")
+            htmlDirectoryUrl = getEpubPageDirectoryUrl(epubFilename: activeReadable!.id, path: filename ?? "")
+            
+            print("[RRV] Title: \(String(describing: activeReadable?.epub?.title))")
+            print("[RRV] htmlFileUrl: \(String(describing: htmlFileUrl))")
+            print("[RRV] htmlDirectoryUrl: \(String(describing: htmlDirectoryUrl))")
         })
     }
 }
@@ -34,7 +39,7 @@ struct ReaderRenderView: View {
 #if DEBUG
 struct ReaderRenderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderRenderView(activeReadable: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!), filename: "")
+        ReaderRenderView(activeReadable: EpubLoader(withUrl: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/You%20Are%20Enough.epub")!), filename: "")
     }
 }
 #endif

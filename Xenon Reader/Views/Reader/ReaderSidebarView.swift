@@ -8,15 +8,14 @@
 import EPUBKit
 import SwiftUI
 
+// TODO: Switch to EPUBSpine instead of EPUBTableOfContents for getting pages
 struct ReaderSidebarView: View {
     @EnvironmentObject var xrShared: XRShared
-    let toc: EPUBTableOfContents?
-    
     @State private var defaultItemActive: Bool = true
 
     var body: some View {
         List {
-            if let subTable = toc?.subTable {
+            if let subTable = xrShared.activeReadable?.epub?.tableOfContents.subTable {
                 ForEach(subTable, id: \.id) { item in
                     NavigationLink(
                         destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
@@ -28,13 +27,21 @@ struct ReaderSidebarView: View {
             }
         }
         .listStyle(SidebarListStyle())
+//        .onAppear(perform: {
+//            print(xrShared.activeReadable?.epub?.spine)
+//            print(xrShared.activeReadable?.epub?.manifest)
+//
+//            print("")
+//
+//            print(xrShared.activeReadable?.epub?.manifest.items[(xrShared.activeReadable?.epub?.spine.items[0].idref)!])
+//        })
     }
 }
 
 #if DEBUG
 struct ReaderSidebarView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderSidebarView(toc: EPUBDocument(url: URL(string: "file:///Users/hkamran/Desktop/Desktop/Books/Xenon%20Library/SpySchoolBritishInvasion_StuartGibbs.epub")!)!.tableOfContents)
+        ReaderSidebarView()
             .environmentObject(XRShared())
     }
 }

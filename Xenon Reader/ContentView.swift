@@ -19,11 +19,11 @@ struct ContentView: View {
         NavigationView {
             switch self.xrShared.mainViewType {
                 case .library: LibraryParentView().environmentObject(xrShared)
-                case .reader: ReaderParentView(epub: self.xrShared.activeReadable).environmentObject(xrShared)
+                case .reader: ReaderParentView().environmentObject(xrShared)
             }
         }
-        .navigationTitle(self.xrShared.mainViewType == .library ? "Xenon Reader" : (self.xrShared.activeReadable?.title ?? "Unknown Title"))
-        .navigationSubtitle(self.xrShared.mainViewType == .library ? generateReadableCount(count: self.xrShared.epubs.count) : (self.xrShared.activeReadable?.author ?? "Unknown Author"))
+        .navigationTitle(self.xrShared.mainViewType == .library ? "Xenon Reader" : (self.xrShared.activeReadable?.epub?.title ?? "Unknown Title"))
+        .navigationSubtitle(self.xrShared.mainViewType == .library ? generateReadableCount(count: self.xrShared.epubs.count) : (self.xrShared.activeReadable?.epub?.author ?? "Unknown Author"))
         .frame(minWidth: 350, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         .modifier(ToolbarModifier(xrShared: self.xrShared))
     }
