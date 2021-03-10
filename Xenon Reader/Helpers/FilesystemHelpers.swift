@@ -5,9 +5,9 @@
 //  Created by H. Kamran on 2/25/21.
 //
 
+import AEXML
 import EPUBKit
 import Foundation
-import Zip
 
 // MARK: Directory List Functions
 
@@ -64,27 +64,65 @@ func getDocumentsDirectory() -> URL? {
     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 }
 
+func getApplicationSupportDirectory() -> URL? {
+    return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
+}
+
 func getAppDocumentsDirectory() -> URL {
     return getDocumentsDirectory()?.appendingPathComponent("Xenon Reader", isDirectory: true) ?? getDocumentsDirectory()!
 }
 
-func getEpubDirectory(epubFilename: String) -> URL? {
-    return getAppDocumentsDirectory().appendingPathComponent(epubFilename.replacingOccurrences(of: ".epub", with: "").removingPercentEncoding!, isDirectory: true)
+func getAppSupportDirectory() -> URL {
+    return getApplicationSupportDirectory()!.appendingPathComponent(Bundle.main.bundleIdentifier ?? "com.hkamran.XenonReader")
 }
 
-func getEpubPageUrl(epubFilename: String, path: String) -> URL {
-    let epubDirectory = getEpubDirectory(epubFilename: epubFilename)
+func getEpubDirectory(epubFilename: String, storageLocation: StorageLocation = StorageLocation.applicationSupport) -> URL? {
+    let storagePath = storageLocation == .documents ? getAppDocumentsDirectory() : getAppSupportDirectory()
+    return storagePath.appendingPathComponent(epubFilename.replacingOccurrences(of: ".epub", with: "").removingPercentEncoding!, isDirectory: true)
+}
+
+func getEpubPageUrl(epubFilename: String, path: String, storageLocation: StorageLocation = StorageLocation.applicationSupport) -> URL {
+    let epubDirectory = getEpubPageDirectoryUrl(epubId: epubFilename, storageLocation: storageLocation)
     let pathComponents = path.removingPercentEncoding!.components(separatedBy: ".")
 
     return URL(fileURLWithPath: pathComponents[0], relativeTo: epubDirectory).appendingPathExtension(pathComponents[1])
 }
 
-func getEpubPageDirectoryUrl(epubFilename: String, path: String) -> URL {
-    let epubDirectory = getEpubDirectory(epubFilename: epubFilename)
-    let pathComponents = path.removingPercentEncoding!.components(separatedBy: ".")
-    var pathFileComponents = pathComponents[0].components(separatedBy: "/")
+//func getEpubPageDirectoryUrl(epubFilename: String, path: String, storageLocation: StorageLocation = StorageLocation.applicationSupport) -> URL {
+//    let epubDirectory = getEpubDirectory(epubFilename: epubFilename)
+//    let pathComponents = path.removingPercentEncoding!.components(separatedBy: ".")
+//    var pathFileComponents = pathComponents[0].components(separatedBy: "/")
+//
+//    pathFileComponents.removeLast()
+//
+//    return URL(fileURLWithPath: pathFileComponents.joined(separator: "/"), isDirectory: true, relativeTo: epubDirectory)
+//}
 
-    pathFileComponents.removeLast()
+func getEpubPageDirectoryUrl(epubId: String, storageLocation: StorageLocation) -> URL {
+    let epubDirectory = getEpubDirectory(epubFilename: epubId, storageLocation: storageLocation)
+    let epubContainerXML = URL(fileURLWithPath: "container.xml", relativeTo: epubDirectory?.appendingPathComponent("META-INF", isDirectory: true))
 
-    return URL(fileURLWithPath: pathFileComponents.joined(separator: "/"), isDirectory: true, relativeTo: epubDirectory)
+    do {
+        let data = try Data(contentsOf: epubContainerXML)
+        let xml = try AEXMLDocument(xml: data)
+
+        let pathComponent = xml.root["rootfiles"]["rootfile"].attributes["full-path"]?.components(separatedBy: "/").first
+
+        if pathComponent?.contains(".") == true {
+            return epubDirectory!
+        } else {
+            return (epubDirectory?.appendingPathComponent(pathComponent!, isDirectory: true))!
+        }
+    } catch {
+        print("[ERROR] getEpubPageDirectoryUrl2: \(error.localizedDescription)")
+
+        return epubDirectory!
+    }
+}
+
+// MARK: Fetch Function Helpers
+
+enum StorageLocation {
+    case documents
+    case applicationSupport
 }

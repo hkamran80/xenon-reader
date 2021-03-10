@@ -14,12 +14,16 @@ import Foundation
 struct EpubLoader: Hashable {
     let id: String
     let epub: EPUBDocument?
+    let storageLocation: StorageLocation = .applicationSupport
     var spineItemIndex: Int = 0
 
     init(withUrl fileUrl: URL) {
         // TODO: Figure out a way of handling readables with duplicate titles
         id = fileUrl.lastPathComponent.replacingOccurrences(of: ".epub", with: "").removingPercentEncoding!
-        epub = EPUBDocument(url: fileUrl, extractionDirectory: getAppDocumentsDirectory().appendingPathComponent(id))
+        switch storageLocation {
+            case .documents: epub = EPUBDocument(url: fileUrl, extractionDirectory: getAppDocumentsDirectory().appendingPathComponent(id))
+            case .applicationSupport: epub = EPUBDocument(url: fileUrl, extractionDirectory: getAppSupportDirectory().appendingPathComponent(id))
+        }
     }
 }
 

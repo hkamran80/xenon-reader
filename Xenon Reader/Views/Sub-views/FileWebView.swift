@@ -18,6 +18,9 @@ struct FileWebView: NSViewRepresentable {
     }
 
     func updateNSView(_ nsView: WKWebView, context: Context) {
+        print("[FFV] \(fileURL)")
+        print("[FFV] \(directoryURL)")
+        
         nsView.loadFileURL(fileURL, allowingReadAccessTo: directoryURL)
     }
 }
