@@ -15,7 +15,7 @@ struct ReaderRenderView: View {
 
     @State private var htmlFileUrl: URL? = nil
     @State private var htmlDirectoryUrl: URL? = nil
-    
+
     var body: some View {
         Group {
             if let fileUrl = htmlFileUrl, let directoryUrl = htmlDirectoryUrl {
@@ -28,10 +28,6 @@ struct ReaderRenderView: View {
         .onAppear(perform: {
             htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? "")
             htmlDirectoryUrl = getEpubPageDirectoryUrl(epubFilename: activeReadable!.id, path: filename ?? "")
-            
-            print("[RRV] Title: \(String(describing: activeReadable?.epub?.title))")
-            print("[RRV] htmlFileUrl: \(String(describing: htmlFileUrl))")
-            print("[RRV] htmlDirectoryUrl: \(String(describing: htmlDirectoryUrl))")
         })
     }
 }

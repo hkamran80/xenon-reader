@@ -16,10 +16,17 @@ struct ReaderSidebarView: View {
     var body: some View {
         List {
             if let subTable = xrShared.activeReadable?.epub?.tableOfContents.subTable {
-                ForEach(subTable, id: \.id) { item in
-                    NavigationLink(
-                        destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
-                            Text(item.label)
+                ForEach(Array(subTable.enumerated()), id: \.offset) { index, item in
+                    if index == 0 {
+                        NavigationLink(
+                            destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item), isActive: $defaultItemActive) {
+                                Text(item.label)
+                        }
+                    } else {
+                        NavigationLink(
+                            destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
+                                Text(item.label)
+                        }
                     }
                 }
             } else {
@@ -27,14 +34,6 @@ struct ReaderSidebarView: View {
             }
         }
         .listStyle(SidebarListStyle())
-//        .onAppear(perform: {
-//            print(xrShared.activeReadable?.epub?.spine)
-//            print(xrShared.activeReadable?.epub?.manifest)
-//
-//            print("")
-//
-//            print(xrShared.activeReadable?.epub?.manifest.items[(xrShared.activeReadable?.epub?.spine.items[0].idref)!])
-//        })
     }
 }
 

@@ -19,7 +19,6 @@
 - Loading of external content
     - Stylesheets
     - Images
-    - Scripts (are there scripts in EPUBs?)
 - External link viewing (view in browser)
 - Bookmarks
 - Highlights (multicolor)

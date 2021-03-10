@@ -14,6 +14,7 @@ import Foundation
 struct EpubLoader: Hashable {
     let id: String
     let epub: EPUBDocument?
+    var spineItemIndex: Int = 0
 
     init(withUrl fileUrl: URL) {
         // TODO: Figure out a way of handling readables with duplicate titles

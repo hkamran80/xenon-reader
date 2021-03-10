@@ -16,10 +16,11 @@ struct ReaderParentView: View {
             ReaderSidebarView()
                 .environmentObject(self.xrShared)
 
-            ReaderRenderView(activeReadable: xrShared.activeReadable, filename: xrShared.activeReadable?.epub?.tableOfContents.subTable?[0].item)
+            // TODO: Figure out how to use `xrShared.activeReadable?.spineItemIndex` for pagination
+            ReaderRenderView(activeReadable: xrShared.activeReadable, filename: xrShared.activeReadable?.epub?.manifest.items[(xrShared.activeReadable?.epub?.spine.items[xrShared.activeReadable?.spineItemIndex ?? 0].idref)!]?.path)
         } else {
             EmptyView()
-            
+
             Text("No Active Readable")
         }
     }

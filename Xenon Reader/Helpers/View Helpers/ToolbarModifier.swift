@@ -32,6 +32,8 @@ struct ToolbarModifier: ViewModifier {
 
                 ToolbarItemGroup {
                     if xrShared.mainViewType == .library {
+                        // MARK: Library Controls
+
                         Picker("Library View", selection: $viewType) {
                             Label("Grid", systemImage: "square.grid.3x2")
                                 .tag(ViewTypes.grid)
@@ -47,10 +49,20 @@ struct ToolbarModifier: ViewModifier {
                             Image(systemName: "magnifyingglass")
                         }
                     } else {
-                        Button(action: {}) {
+                        // MARK: Reader Controls
+
+                        Button(action: {
+                            if xrShared.activeReadable != nil, xrShared.activeReadable!.spineItemIndex - 1 >= 0 {
+                                xrShared.activeReadable?.spineItemIndex -= 1
+                            }
+                        }) {
                             Label("Previous Page", systemImage: "chevron.left")
                         }
-                        Button(action: {}) {
+                        Button(action: {
+                            if xrShared.activeReadable != nil, xrShared.activeReadable!.spineItemIndex + 1 < (xrShared.activeReadable?.epub?.spine.items.count) ?? 0 {
+                                xrShared.activeReadable?.spineItemIndex += 1
+                            }
+                        }) {
                             Label("Next Page", systemImage: "chevron.right")
                         }
                     }
