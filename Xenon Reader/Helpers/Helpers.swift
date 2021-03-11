@@ -8,7 +8,7 @@
 import CryptoKit
 import EPUBKit
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class XRShared: ObservableObject {
     @Published var epubs: [EpubLoader] = []
@@ -21,7 +21,7 @@ class XRShared: ObservableObject {
     @Published var activeReadable: EpubLoader? = nil
     
     @Published var fileList: [String] = []
-    @Published var realmInstance: Realm? = initializeRealm()
+//    @Published var realmInstance: Realm? = initializeRealm()
 
     @Published var categoryCreationSheet: Bool = false
 }

@@ -6,7 +6,6 @@
 //
 
 import EPUBKit
-import RealmSwift
 import SwiftUI
 
 struct FileListView: View {

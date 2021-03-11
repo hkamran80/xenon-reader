@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import RealmSwift
-
-func initializeRealm() -> Realm? {
-    do {
-        return try Realm()
-    } catch {
-        print("Error initalizing new Realm: \(error.localizedDescription)")
-        return nil
-    }
-}
+//import RealmSwift
+//
+//func initializeRealm() -> Realm? {
+//    do {
+//        return try Realm()
+//    } catch {
+//        print("Error initalizing new Realm: \(error.localizedDescription)")
+//        return nil
+//    }
+//}

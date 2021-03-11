@@ -25,7 +25,6 @@ struct ReaderRenderView: View {
                     .progressViewStyle(CircularProgressViewStyle())
             }
         }
-        
     }
 }
 
