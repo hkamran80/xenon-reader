@@ -11,27 +11,19 @@ import SwiftUI
 // TODO: Switch to EPUBSpine instead of EPUBTableOfContents for getting pages
 struct ReaderSidebarView: View {
     @EnvironmentObject var xrShared: XRShared
-    @State private var defaultItemActive: Bool = true
 
     var body: some View {
         List {
-//            if let subTable = xrShared.activeReadable?.epub?.tableOfContents.subTable {
-//                ForEach(Array(subTable.enumerated()), id: \.offset) { index, item in
-//                    if index == 0 {
-//                        NavigationLink(
-//                            destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item), isActive: $defaultItemActive) {
-//                                Text(item.label)
-//                        }
-//                    } else {
-//                        NavigationLink(
-//                            destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
-//                                Text(item.label)
-//                        }
-//                    }
-//                }
-//            } else {
-//                Text("No TOC Available")
-//            }
+            if let subTable = xrShared.activeReadable?.epub?.tableOfContents.subTable {
+                ForEach(subTable, id: \.id) { item in
+                    NavigationLink(
+                        destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
+                            Text(item.label)
+                    }
+                }
+            } else {
+                Text("No TOC Available")
+            }
         }
         .listStyle(SidebarListStyle())
     }
