@@ -13,6 +13,8 @@
             - Selected author: 5 readables
         - Publishers: 100 readables
             - Selected publisher: 1 readable
+- Categories
+    - Add Realm back when categories are added
 
 ## Reader
 - Pagination

@@ -25,13 +25,14 @@ struct SidebarView: View {
                 }
             }
 
-            Section(header: Text("Categories")) {
-                ForEach(self.xrShared.categories, id: \.id) { category in
-                    NavigationLink(destination: Text("Planned: \(category.name)")) {
-                        Label(category.name, systemImage: category.imageName)
-                    }
-                }
-            }
+            // TODO: Add category support
+//            Section(header: Text("Categories")) {
+//                ForEach(self.xrShared.categories, id: \.id) { category in
+//                    NavigationLink(destination: Text("Planned: \(category.name)")) {
+//                        Label(category.name, systemImage: category.imageName)
+//                    }
+//                }
+//            }
 
             Spacer()
 

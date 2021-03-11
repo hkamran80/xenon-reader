@@ -26,8 +26,10 @@ struct ReaderRenderView: View {
             }
         }
         .onAppear(perform: {
-            htmlFileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? "")
-            htmlDirectoryUrl = getEpubPageDirectoryUrl(epubId: activeReadable!.id, storageLocation: .applicationSupport)
+            if let activeId = activeReadable?.id {
+                htmlFileUrl = getEpubPageUrl(epubFilename: activeId, path: filename ?? "")
+                htmlDirectoryUrl = getEpubPageDirectoryUrl(epubId: activeId, storageLocation: .applicationSupport)
+            }
         })
     }
 }
