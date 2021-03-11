@@ -13,24 +13,18 @@ struct ReaderRenderView: View {
     let activeReadable: EpubLoader?
     let filename: String?
 
-    @State private var htmlFileUrl: URL? = nil
-    @State private var htmlDirectoryUrl: URL? = nil
-
     var body: some View {
         Group {
-            if let fileUrl = htmlFileUrl, let directoryUrl = htmlDirectoryUrl {
+            if
+                let fileUrl = getEpubPageUrl(epubFilename: activeReadable!.id, path: filename ?? ""),
+                let directoryUrl = getEpubPageDirectoryUrl(epubId: activeReadable!.id, storageLocation: .applicationSupport)
+            {
                 FileWebView(fileURL: fileUrl, directoryURL: directoryUrl)
             } else {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
             }
         }
-        .onAppear(perform: {
-            if let activeId = activeReadable?.id {
-                htmlFileUrl = getEpubPageUrl(epubFilename: activeId, path: filename ?? "")
-                htmlDirectoryUrl = getEpubPageDirectoryUrl(epubId: activeId, storageLocation: .applicationSupport)
-            }
-        })
     }
 }
 
