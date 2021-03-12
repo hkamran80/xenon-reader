@@ -14,6 +14,7 @@ struct FileWebView: NSViewRepresentable {
     let directoryURL: URL
 
     func makeNSView(context: Context) -> WKWebView {
+        // TODO: Handle link elements in light mode (maybe a nice blue?)
         let css = ":root { color-scheme: light dark; } body { padding: 16px; font: -apple-system-body !important; font-size: 24px; } a { color: yellow }"
         let styleInjectionScript = "let style = document.createElement('style'); style.innerHTML = '\(css)'; document.head.appendChild(style);"
         let userScript = WKUserScript(source: styleInjectionScript, injectionTime: .atDocumentEnd, forMainFrameOnly: false)

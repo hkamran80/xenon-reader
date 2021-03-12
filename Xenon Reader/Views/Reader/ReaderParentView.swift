@@ -21,7 +21,6 @@ struct ReaderParentView: View {
 
             } else {
                 EmptyView()
-
                 Text("No Active Readable")
             }
         }

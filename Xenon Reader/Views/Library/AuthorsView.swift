@@ -12,7 +12,7 @@ struct AuthorsView: View {
 
     var body: some View {
         NavigationView {
-            List(self.xrShared.authors, id: \.id) { author in
+            List(self.xrShared.authors.sorted { $0.name.lowercased() < $1.name.lowercased() }, id: \.id) { author in
                 NavigationLink(destination: LibraryView(epubs: author.readables)) {
                     Text(author.name)
                 }

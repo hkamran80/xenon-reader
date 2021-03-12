@@ -8,7 +8,6 @@
 import EPUBKit
 import SwiftUI
 
-// TODO: Create render view
 struct ReaderRenderView: View {
     let activeReadable: EpubLoader?
     let filename: String?

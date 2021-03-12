@@ -9,6 +9,7 @@ import EPUBKit
 import SwiftUI
 
 struct GridView: View {
+    @AppStorage("librarySortType") var librarySort: LibrarySortTypes = .title
     @EnvironmentObject var xrShared: XRShared
 
     let epubs: [EpubLoader]
@@ -20,7 +21,7 @@ struct GridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                ForEach(epubs, id: \.id) { epub in
+                ForEach(sortLibraryList(epubList: epubs, sortType: librarySort), id: \.id) { epub in
                     GridViewBook(epub: epub.epub)
                         .onTapGesture(count: 2, perform: {
                             self.xrShared.activeReadable = epub

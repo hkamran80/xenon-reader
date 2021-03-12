@@ -31,6 +31,9 @@
 		12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DEE925DC7C8400B5908F /* GridView.swift */; };
 		12B4DEED25DC7D1800B5908F /* GridViewBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */; };
 		12DD222525E9962400373A7B /* FileWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD222425E9962400373A7B /* FileWebView.swift */; };
+		12ECB5C825FB346200BBD6E3 /* ReaderSidebarTOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5C725FB346200BBD6E3 /* ReaderSidebarTOC.swift */; };
+		12ECB5CD25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5CC25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift */; };
+		12ECB5D025FB374B00BBD6E3 /* DetailListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5CF25FB374B00BBD6E3 /* DetailListRow.swift */; };
 		12EDE4D725E31656005110E2 /* ReadableInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EDE4D625E31656005110E2 /* ReadableInformation.swift */; };
 		12F22C4425E43704001BB4AE /* PublishersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F22C4325E43704001BB4AE /* PublishersView.swift */; };
 		12F22C4725E43852001BB4AE /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F22C4625E43852001BB4AE /* ListView.swift */; };
@@ -74,6 +77,9 @@
 		12B4DEE925DC7C8400B5908F /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		12B4DEEC25DC7D1800B5908F /* GridViewBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewBook.swift; sourceTree = "<group>"; };
 		12DD222425E9962400373A7B /* FileWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWebView.swift; sourceTree = "<group>"; };
+		12ECB5C725FB346200BBD6E3 /* ReaderSidebarTOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSidebarTOC.swift; sourceTree = "<group>"; };
+		12ECB5CC25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSidebarMetadata.swift; sourceTree = "<group>"; };
+		12ECB5CF25FB374B00BBD6E3 /* DetailListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListRow.swift; sourceTree = "<group>"; };
 		12EDE4D625E31656005110E2 /* ReadableInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableInformation.swift; sourceTree = "<group>"; };
 		12F22C4325E43704001BB4AE /* PublishersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersView.swift; sourceTree = "<group>"; };
 		12F22C4625E43852001BB4AE /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 		1200346925E3A70F00F467F1 /* Sub-views */ = {
 			isa = PBXGroup;
 			children = (
+				12ECB5CF25FB374B00BBD6E3 /* DetailListRow.swift */,
 				1200347325E3C2CE00F467F1 /* NewCategorySheet.swift */,
 				12DD222425E9962400373A7B /* FileWebView.swift */,
 			);
@@ -182,6 +189,7 @@
 				1220F94825E640120077BEC8 /* ReaderParentView.swift */,
 				1220F95A25E650C10077BEC8 /* ReaderRenderView.swift */,
 				1220F95425E641A70077BEC8 /* ReaderSidebarView.swift */,
+				12ECB5CA25FB346500BBD6E3 /* Sub-views */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -255,6 +263,15 @@
 				1239427B25DBDAA700B408DB /* DebugSettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		12ECB5CA25FB346500BBD6E3 /* Sub-views */ = {
+			isa = PBXGroup;
+			children = (
+				12ECB5CC25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift */,
+				12ECB5C725FB346200BBD6E3 /* ReaderSidebarTOC.swift */,
+			);
+			path = "Sub-views";
 			sourceTree = "<group>";
 		};
 		12F5355525E0BEA600D11F49 /* Views */ = {
@@ -347,18 +364,21 @@
 				1239426825DBCD2900B408DB /* SettingsView.swift in Sources */,
 				1200346725E3A45D00F467F1 /* LibraryView.swift in Sources */,
 				12DD222525E9962400373A7B /* FileWebView.swift in Sources */,
+				12ECB5D025FB374B00BBD6E3 /* DetailListRow.swift in Sources */,
 				12B4DEED25DC7D1800B5908F /* GridViewBook.swift in Sources */,
 				12F5355825E0BEC500D11F49 /* FileListView.swift in Sources */,
 				12F4FC3925F872B2005ACFB5 /* LibrarySettingsView.swift in Sources */,
 				122529D325E8ACB5006184DB /* ReadableHelpers.swift in Sources */,
 				1239427525DBD75600B408DB /* EPUBHelpers.swift in Sources */,
 				12EDE4D725E31656005110E2 /* ReadableInformation.swift in Sources */,
+				12ECB5C825FB346200BBD6E3 /* ReaderSidebarTOC.swift in Sources */,
 				12A8A54025DCE7BE003147E2 /* AuthorsView.swift in Sources */,
 				122529DE25E8B64B006184DB /* LibraryBookModifier.swift in Sources */,
 				12F6F7C525E8637600FAB635 /* FilesystemHelpers.swift in Sources */,
 				12F22C4425E43704001BB4AE /* PublishersView.swift in Sources */,
 				122529D625E8ACF8006184DB /* LibraryHelpers.swift in Sources */,
 				1220F94925E640120077BEC8 /* ReaderParentView.swift in Sources */,
+				12ECB5CD25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift in Sources */,
 				1200347425E3C2CE00F467F1 /* NewCategorySheet.swift in Sources */,
 				12B4DEEA25DC7C8400B5908F /* GridView.swift in Sources */,
 				12F22C4725E43852001BB4AE /* ListView.swift in Sources */,

@@ -23,7 +23,7 @@ struct ContentView: View {
             }
         }
         .navigationTitle(self.xrShared.mainViewType == .library ? "Xenon Reader" : (self.xrShared.activeReadable?.epub?.title ?? "Unknown Title"))
-        .navigationSubtitle(self.xrShared.mainViewType == .library ? generateReadableCount(count: self.xrShared.epubs.count) : (self.xrShared.activeReadable?.epub?.author ?? "Unknown Author"))
+        .navigationSubtitle(generateSubtitle(xrShared: xrShared))
         .frame(minWidth: 350, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         .modifier(ToolbarModifier(xrShared: self.xrShared))
     }

@@ -8,24 +8,34 @@
 import EPUBKit
 import SwiftUI
 
-// TODO: Switch to EPUBSpine instead of EPUBTableOfContents for getting pages
 struct ReaderSidebarView: View {
     @EnvironmentObject var xrShared: XRShared
+    @State private var sidebarView: ReaderSidebarViews = .tableOfContents
 
     var body: some View {
-        List {
-            if let subTable = xrShared.activeReadable?.epub?.tableOfContents.subTable {
-                ForEach(subTable, id: \.id) { item in
-                    NavigationLink(
-                        destination: ReaderRenderView(activeReadable: xrShared.activeReadable, filename: item.item)) {
-                            Text(item.label)
-                    }
-                }
-            } else {
-                Text("No TOC Available")
+        VStack(alignment: .leading) {
+            Picker("", selection: $sidebarView) {
+                Label("Table of Contents", systemImage: "list.bullet")
+                    .labelStyle(IconOnlyLabelStyle())
+                    .tag(ReaderSidebarViews.tableOfContents)
+
+                Label("Metadata", systemImage: "info.circle")
+                    .labelStyle(IconOnlyLabelStyle())
+                    .tag(ReaderSidebarViews.metadata)
+
+                Label("Markup", systemImage: "pencil.and.outline")
+                    .labelStyle(IconOnlyLabelStyle())
+                    .tag(ReaderSidebarViews.markup)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.horizontal, 8)
+
+            switch sidebarView {
+                case .tableOfContents: ReaderSidebarTOC().environmentObject(xrShared)
+                case .metadata: ReaderSidebarMetadata().environmentObject(xrShared)
+                default: ReaderSidebarTOC().environmentObject(xrShared)
             }
         }
-        .listStyle(SidebarListStyle())
     }
 }
 

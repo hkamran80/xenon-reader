@@ -38,14 +38,40 @@ enum LibrarySortTypes: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
+enum ReaderSidebarViews: String, CaseIterable, Identifiable {
+    case tableOfContents
+    case metadata
+    case markup
+
+    var id: String { self.rawValue }
+}
+
 // MARK: Functions
 
-func toggleSidebar() {
-    NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
-}
+// MARK: Generation Functions
 
 func generateReadableCount(count: Int) -> String {
     return count == 1 ? "\(count) Readable" : "\(count) Readables"
+}
+
+func generateSubtitle(xrShared: XRShared) -> String {
+    var subtitle: String = ""
+
+    switch xrShared.mainViewType {
+        case .library: subtitle = generateReadableCount(count: xrShared.epubs.count)
+        case .reader:
+            if let activeReadable = xrShared.activeReadable, let activeChapter = getActiveChapterTitle(activeReadable: activeReadable) {
+                subtitle = activeChapter
+            }
+    }
+
+    return subtitle
+}
+
+// MARK: Generic Functions
+
+func toggleSidebar() {
+    NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
 }
 
 func returnPrefix(string: String, prefixLength: Int) -> String {
@@ -66,6 +92,19 @@ func sortLibraryList(epubList: [EpubLoader], sortType: LibrarySortTypes) -> [Epu
         default: returnList = epubList
     }
 
-    print(returnList.map { $0.epub?.title })
     return returnList
+}
+
+// MARK: Generation Helpers
+
+private func getActiveChapterTitle(activeReadable: EpubLoader) -> String? {
+    let spineItems = activeReadable.epub?.spine.items
+    let manifestItems = activeReadable.epub?.manifest.items.map { $0.1 }
+    let tocItems = activeReadable.epub?.tableOfContents.subTable
+
+    if let tocItem = tocItems?.first(where: { $0.item == manifestItems?.first(where: { $0.id == spineItems?[activeReadable.spineItemIndex].idref })?.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) }) {
+        return tocItem.label
+    } else {
+        return nil
+    }
 }
