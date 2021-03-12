@@ -30,6 +30,7 @@ struct ReaderSidebarView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding(.horizontal, 8)
 
+            // TODO: Figure out why switching sidebar views changes the web view
             switch sidebarView {
                 case .tableOfContents: ReaderSidebarTOC().environmentObject(xrShared)
                 case .metadata: ReaderSidebarMetadata().environmentObject(xrShared)

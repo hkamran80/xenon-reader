@@ -97,7 +97,7 @@ func sortLibraryList(epubList: [EpubLoader], sortType: LibrarySortTypes) -> [Epu
 
 // MARK: Generation Helpers
 
-private func getActiveChapterTitle(activeReadable: EpubLoader) -> String? {
+func getActiveChapterTitle(activeReadable: EpubLoader) -> String? {
     let spineItems = activeReadable.epub?.spine.items
     let manifestItems = activeReadable.epub?.manifest.items.map { $0.1 }
     let tocItems = activeReadable.epub?.tableOfContents.subTable

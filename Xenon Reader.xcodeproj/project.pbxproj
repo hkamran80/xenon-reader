@@ -34,6 +34,8 @@
 		12ECB5C825FB346200BBD6E3 /* ReaderSidebarTOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5C725FB346200BBD6E3 /* ReaderSidebarTOC.swift */; };
 		12ECB5CD25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5CC25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift */; };
 		12ECB5D025FB374B00BBD6E3 /* DetailListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5CF25FB374B00BBD6E3 /* DetailListRow.swift */; };
+		12ECB5D325FBD6EB00BBD6E3 /* TOCFocusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5D225FBD6EB00BBD6E3 /* TOCFocusModifier.swift */; };
+		12ECB5D625FBDCD600BBD6E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECB5D525FBDCD600BBD6E3 /* StringExtensions.swift */; };
 		12EDE4D725E31656005110E2 /* ReadableInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EDE4D625E31656005110E2 /* ReadableInformation.swift */; };
 		12F22C4425E43704001BB4AE /* PublishersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F22C4325E43704001BB4AE /* PublishersView.swift */; };
 		12F22C4725E43852001BB4AE /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F22C4625E43852001BB4AE /* ListView.swift */; };
@@ -80,6 +82,8 @@
 		12ECB5C725FB346200BBD6E3 /* ReaderSidebarTOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSidebarTOC.swift; sourceTree = "<group>"; };
 		12ECB5CC25FB36C100BBD6E3 /* ReaderSidebarMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSidebarMetadata.swift; sourceTree = "<group>"; };
 		12ECB5CF25FB374B00BBD6E3 /* DetailListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListRow.swift; sourceTree = "<group>"; };
+		12ECB5D225FBD6EB00BBD6E3 /* TOCFocusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOCFocusModifier.swift; sourceTree = "<group>"; };
+		12ECB5D525FBDCD600BBD6E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		12EDE4D625E31656005110E2 /* ReadableInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableInformation.swift; sourceTree = "<group>"; };
 		12F22C4325E43704001BB4AE /* PublishersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersView.swift; sourceTree = "<group>"; };
 		12F22C4625E43852001BB4AE /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		1203E25425DCBD9F001D999E /* View Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				12ECB5D225FBD6EB00BBD6E3 /* TOCFocusModifier.swift */,
 				122529DD25E8B64B006184DB /* LibraryBookModifier.swift */,
 				1203E25125DCBCE0001D999E /* ToolbarModifier.swift */,
 				12F5356625E20C5B00D11F49 /* ViewHelpers.swift */,
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				1203E26525DCE0EB001D999E /* EPUBDocumentExtensions.swift */,
+				12ECB5D525FBDCD600BBD6E3 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 				1203E26625DCE0EB001D999E /* EPUBDocumentExtensions.swift in Sources */,
 				1220F94625E63FAC0077BEC8 /* LibraryParentView.swift in Sources */,
 				12F5356425E1FEF500D11F49 /* VariablesView.swift in Sources */,
+				12ECB5D625FBDCD600BBD6E3 /* StringExtensions.swift in Sources */,
 				12F5356725E20C5B00D11F49 /* ViewHelpers.swift in Sources */,
 				1252059D25DDB01600E6E464 /* RealmObjects.swift in Sources */,
 				12F5355125E0BD9500D11F49 /* Helpers.swift in Sources */,
@@ -395,6 +402,7 @@
 				12F5356B25E223AC00D11F49 /* SidebarView.swift in Sources */,
 				1203E25225DCBCE0001D999E /* ToolbarModifier.swift in Sources */,
 				12F22C4A25E43907001BB4AE /* ListViewBook.swift in Sources */,
+				12ECB5D325FBD6EB00BBD6E3 /* TOCFocusModifier.swift in Sources */,
 				1239427C25DBDAA700B408DB /* DebugSettingsView.swift in Sources */,
 				12F4FC3625F87299005ACFB5 /* ReaderSettingsView.swift in Sources */,
 				1220F95B25E650C10077BEC8 /* ReaderRenderView.swift in Sources */,

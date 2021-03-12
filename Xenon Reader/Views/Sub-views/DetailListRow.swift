@@ -13,12 +13,12 @@ struct DetailListRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            Text(name)
+                .font(.subheadline)
+
             Text(detail)
                 .font(.headline)
                 .bold()
-
-            Text(name)
-                .font(.subheadline)
         }
     }
 }

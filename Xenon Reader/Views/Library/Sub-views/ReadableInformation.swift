@@ -51,37 +51,11 @@ struct ReadableInformation: View {
                 
                 List {
                     if let publisher = epub?.publisher {
-                        HStack {
-                            Text("Publisher:")
-                                .bold()
-                    
-                            Text(publisher)
-                        }
+                        DetailListRow(name: "Publisher", detail: publisher)
                     }
                 
-                    if let description = epub?.metadata.description {
-                        VStack(alignment: .leading) {
-                            Text("Description")
-                                .bold()
-                    
-                            // TODO: Figure out a way of rendering HTML natively with SwiftUI
-                            Text(description)
-                        }
-                    }
-                    
-                    // TODO: Remove after reader rendering works 100%
-                    if let toc = epub?.tableOfContents {
-                        Divider()
-                        
-                        if let subTable = toc.subTable {
-                            ForEach(subTable, id: \.id) { item in
-                                Text("\"\(item.label)\" -- \(item.item ?? "No Document")")
-                            }
-                        } else {
-                            Text("No subtable")
-                        }
-                    } else {
-                        Text("No TOC")
+                    if let description = epub?.metadata.description {                        
+                        DetailListRow(name: "Description", detail: (description.stripOutHtml() ?? description).trimmingCharacters(in: .whitespacesAndNewlines))
                     }
                 }
             }
